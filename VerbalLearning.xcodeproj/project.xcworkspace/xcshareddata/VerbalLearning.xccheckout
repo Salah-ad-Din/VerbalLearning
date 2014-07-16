@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6A8815DF-1D94-4767-9499-321C5B75D857</string>
+	<key>IDESourceControlProjectName</key>
+	<string>VerbalLearning</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FFD9884F-351E-478B-87F1-E0CB62619FCD</key>
+		<string>https://github.com/Salah-ad-Din/VerbalLearning.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>VerbalLearning.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FFD9884F-351E-478B-87F1-E0CB62619FCD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Salah-ad-Din/VerbalLearning.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FFD9884F-351E-478B-87F1-E0CB62619FCD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FFD9884F-351E-478B-87F1-E0CB62619FCD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>VerbalLearning</string>
+		</dict>
+	</array>
+</dict>
+</plist>

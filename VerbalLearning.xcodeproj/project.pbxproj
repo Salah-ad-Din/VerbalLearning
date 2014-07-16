@@ -517,6 +517,7 @@
 				91CD5D8F1975844C001E2814 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		91CD5D901975844C001E2814 /* Build configuration list for PBXNativeTarget "VerbalLearningTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +526,7 @@
 				91CD5D921975844C001E2814 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
