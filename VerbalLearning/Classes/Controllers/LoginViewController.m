@@ -10,9 +10,13 @@
 
 @interface LoginViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
 @end
 
 @implementation LoginViewController
+
+@synthesize loginButton = _loginButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,13 +30,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    [_loginButton.layer setCornerRadius:5.0];
+
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 @end
