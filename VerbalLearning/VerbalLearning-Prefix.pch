@@ -14,3 +14,20 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+
+#define LOGIN_SUCCESS               @"success"
+#define LOGIN_IP                    @"ip"
+#define LOGIN_NAME                  @"__name"
+#define LOGIN_CURRENTTIME           @"currenttime"
+#define LOGIN_DAILYURL              @"dailyurl"
+#define LOGIN_DATA                  @"data"
+#define LOGIN_EXTENSIVE             @"extensive"
+#define LOGIN_INTENSIVE             @"intensive"
+#define LOGIN_ORGNAME               @"name"
+#define LOGIN_RECOMMEND             @"recommend"
+#define LOGIN_RSURL                 @"rsurl"
+#define LOGIN_TEXT                  @"__text"
+#define LOGIN_MD5                   @"_md5"
+#define LOGIN_ORGID                 @"_id"
+#define LOGIN_FAILDESC              @"faildesc"

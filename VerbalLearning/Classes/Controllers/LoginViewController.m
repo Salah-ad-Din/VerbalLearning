@@ -7,6 +7,8 @@
 //
 
 #import "LoginViewController.h"
+#import "AFHTTPRequestOperationManager.h"
+#import "LoginXMLParser.h"
 
 @interface LoginViewController ()
 
@@ -36,7 +38,23 @@
     [_loginButton.layer setCornerRadius:5.0];
     _orgSelectTableView.layer.borderWidth = 1.0f;
     _orgSelectTableView.layer.borderColor = [UIColor colorWithRed:0.78 green:0.78 blue:0.8 alpha:1].CGColor;
-
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://m.isayb.com/index.php"]];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    AFHTTPRequestOperation *operation =[manager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        LoginXMLParser *parser = [[LoginXMLParser alloc] initWithXMLData:responseObject];
+        if (parser.errorMsg) {
+            //登录成功
+            
+        } else {
+            //机构过期或其他错误
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //网络错误
+        
+    }];
+    [manager.operationQueue addOperation:operation];
 }
 
 - (void)didReceiveMemoryWarning
