@@ -10,11 +10,15 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "LoginXMLParser.h"
 
+#define ORGSELECT_CELL_HEIGHT               40.0f
+
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *orgSelectButton;
 @property (weak, nonatomic) IBOutlet UITableView *orgSelectTableView;
+@property (weak, nonatomic) IBOutlet UILabel *ipLabel;
+@property (strong, nonatomic) NSMutableArray *orgInfoMArray;
 
 @end
 
@@ -44,9 +48,14 @@
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     AFHTTPRequestOperation *operation =[manager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
         LoginXMLParser *parser = [[LoginXMLParser alloc] initWithXMLData:responseObject];
-        if (parser.errorMsg) {
+        if (parser.errorMsg == nil) {
             //登录成功
             
+            _ipLabel.text = [NSString stringWithFormat:@"您的ip地址为：%@",parser.localIP];
+            _orgInfoMArray = parser.orgInfoMArray;
+            [_orgSelectTableView reloadData];
+            
+            [self orgSelectTableViewAnimation];
         } else {
             //机构过期或其他错误
         }
@@ -75,13 +84,21 @@
 - (void)orgSelectTableViewAnimation
 {
     [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        if (_orgSelectTableView.frame.size.height > 100) {
+        if (_orgSelectTableView.frame.size.height > 1.0f) {
             CGRect rect = _orgSelectTableView.frame;
             rect.size.height = 0.0f;
             _orgSelectTableView.frame = rect;
         } else {
             CGRect rect = _orgSelectTableView.frame;
-            rect.size.height = 193.0f;
+            if (_orgInfoMArray != nil) {
+                if ([_orgInfoMArray count] > 4) {
+                    rect.size.height = ORGSELECT_CELL_HEIGHT * 4;
+                } else {
+                    rect.size.height = ORGSELECT_CELL_HEIGHT * [_orgInfoMArray count];
+                }
+            } else {
+                rect.size.height = 0.0f;
+            }
             _orgSelectTableView.frame = rect;
         }
     } completion:^(BOOL finished) {
@@ -93,7 +110,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 100;
+    if (_orgInfoMArray == nil) {
+        return 1;
+    } else {
+        return [_orgInfoMArray count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -103,8 +124,25 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-
+    
+    if (_orgInfoMArray != nil) {
+        OrgInfo *info = _orgInfoMArray[indexPath.row];
+        cell.textLabel.text = info.orgName;
+    }
+    
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return ORGSELECT_CELL_HEIGHT;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self orgSelectTableViewAnimation];
+    NSString *orgName = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+    [_orgSelectButton setTitle:orgName forState:UIControlStateNormal];
 }
 
 @end
