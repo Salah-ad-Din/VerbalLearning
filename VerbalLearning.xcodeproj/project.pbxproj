@@ -46,6 +46,15 @@
 		91CD5D991975865D001E2814 /* Database in Resources */ = {isa = PBXBuildFile; fileRef = 91CD5D981975865D001E2814 /* Database */; };
 		91CD5DA51975874C001E2814 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD5DA31975874C001E2814 /* LoginViewController.m */; };
 		91CD5DA61975874C001E2814 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91CD5DA41975874C001E2814 /* LoginViewController.xib */; };
+		91E7F2A719839049006C6CF3 /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7F29F19839049006C6CF3 /* MMDrawerBarButtonItem.m */; };
+		91E7F2A819839049006C6CF3 /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7F2A219839049006C6CF3 /* MMDrawerController.m */; };
+		91E7F2A919839049006C6CF3 /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7F2A419839049006C6CF3 /* MMDrawerVisualState.m */; };
+		91E7F2AA19839049006C6CF3 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7F2A619839049006C6CF3 /* UIViewController+MMDrawerController.m */; };
+		91E7F2AD198390AD006C6CF3 /* HomeDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7F2AC198390AD006C6CF3 /* HomeDrawerViewController.m */; };
+		91E7F2B619839169006C6CF3 /* CenterDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7F2B419839169006C6CF3 /* CenterDrawerViewController.m */; };
+		91E7F2B719839169006C6CF3 /* CenterDrawerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91E7F2B519839169006C6CF3 /* CenterDrawerViewController.xib */; };
+		91E7F2BB19839181006C6CF3 /* LeftSideDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7F2B919839181006C6CF3 /* LeftSideDrawerViewController.m */; };
+		91E7F2BC19839181006C6CF3 /* LeftSideDrawerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91E7F2BA19839181006C6CF3 /* LeftSideDrawerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +138,23 @@
 		91CD5DA21975874C001E2814 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		91CD5DA31975874C001E2814 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		91CD5DA41975874C001E2814 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ../Controllers/LoginViewController.xib; sourceTree = "<group>"; };
+		91E7F29E19839049006C6CF3 /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
+		91E7F29F19839049006C6CF3 /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
+		91E7F2A019839049006C6CF3 /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
+		91E7F2A119839049006C6CF3 /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
+		91E7F2A219839049006C6CF3 /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
+		91E7F2A319839049006C6CF3 /* MMDrawerVisualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerVisualState.h; sourceTree = "<group>"; };
+		91E7F2A419839049006C6CF3 /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
+		91E7F2A519839049006C6CF3 /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
+		91E7F2A619839049006C6CF3 /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		91E7F2AB198390AD006C6CF3 /* HomeDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDrawerViewController.h; sourceTree = "<group>"; };
+		91E7F2AC198390AD006C6CF3 /* HomeDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDrawerViewController.m; sourceTree = "<group>"; };
+		91E7F2B319839169006C6CF3 /* CenterDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterDrawerViewController.h; sourceTree = "<group>"; };
+		91E7F2B419839169006C6CF3 /* CenterDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterDrawerViewController.m; sourceTree = "<group>"; };
+		91E7F2B519839169006C6CF3 /* CenterDrawerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CenterDrawerViewController.xib; path = ../Controllers/CenterDrawerViewController.xib; sourceTree = "<group>"; };
+		91E7F2B819839181006C6CF3 /* LeftSideDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSideDrawerViewController.h; sourceTree = "<group>"; };
+		91E7F2B919839181006C6CF3 /* LeftSideDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSideDrawerViewController.m; sourceTree = "<group>"; };
+		91E7F2BA19839181006C6CF3 /* LeftSideDrawerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LeftSideDrawerViewController.xib; path = ../Controllers/LeftSideDrawerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +184,7 @@
 		91608951197BAEDA0036C807 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				91E7F29C1983902A006C6CF3 /* Interface */,
 				91608989197BAEF60036C807 /* Network */,
 			);
 			path = Libraries;
@@ -354,6 +381,7 @@
 		91CD5D9D197586B3001E2814 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				91E7F2431983845F006C6CF3 /* Home */,
 				91CD5DA11975871F001E2814 /* LogIn */,
 			);
 			path = Controllers;
@@ -394,9 +422,48 @@
 		91CD5DA71975875C001E2814 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
+				91E7F2B519839169006C6CF3 /* CenterDrawerViewController.xib */,
+				91E7F2BA19839181006C6CF3 /* LeftSideDrawerViewController.xib */,
 				91CD5DA41975874C001E2814 /* LoginViewController.xib */,
 			);
 			name = LogIn;
+			sourceTree = "<group>";
+		};
+		91E7F2431983845F006C6CF3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				91E7F2AB198390AD006C6CF3 /* HomeDrawerViewController.h */,
+				91E7F2AC198390AD006C6CF3 /* HomeDrawerViewController.m */,
+				91E7F2B319839169006C6CF3 /* CenterDrawerViewController.h */,
+				91E7F2B419839169006C6CF3 /* CenterDrawerViewController.m */,
+				91E7F2B819839181006C6CF3 /* LeftSideDrawerViewController.h */,
+				91E7F2B919839181006C6CF3 /* LeftSideDrawerViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		91E7F29C1983902A006C6CF3 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				91E7F29D19839049006C6CF3 /* MMDrawerController */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		91E7F29D19839049006C6CF3 /* MMDrawerController */ = {
+			isa = PBXGroup;
+			children = (
+				91E7F29E19839049006C6CF3 /* MMDrawerBarButtonItem.h */,
+				91E7F29F19839049006C6CF3 /* MMDrawerBarButtonItem.m */,
+				91E7F2A019839049006C6CF3 /* MMDrawerController+Subclass.h */,
+				91E7F2A119839049006C6CF3 /* MMDrawerController.h */,
+				91E7F2A219839049006C6CF3 /* MMDrawerController.m */,
+				91E7F2A319839049006C6CF3 /* MMDrawerVisualState.h */,
+				91E7F2A419839049006C6CF3 /* MMDrawerVisualState.m */,
+				91E7F2A519839049006C6CF3 /* UIViewController+MMDrawerController.h */,
+				91E7F2A619839049006C6CF3 /* UIViewController+MMDrawerController.m */,
+			);
+			path = MMDrawerController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,6 +541,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91E7F2BC19839181006C6CF3 /* LeftSideDrawerViewController.xib in Resources */,
+				91E7F2B719839169006C6CF3 /* CenterDrawerViewController.xib in Resources */,
 				91CD5DA61975874C001E2814 /* LoginViewController.xib in Resources */,
 				91CD5D6F1975844C001E2814 /* InfoPlist.strings in Resources */,
 				91CD5D771975844C001E2814 /* Images.xcassets in Resources */,
@@ -496,7 +565,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91E7F2A919839049006C6CF3 /* MMDrawerVisualState.m in Sources */,
 				91608991197BB87A0036C807 /* XMLParser.m in Sources */,
+				91E7F2AD198390AD006C6CF3 /* HomeDrawerViewController.m in Sources */,
 				91608978197BAEDA0036C807 /* AFHTTPRequestOperation.m in Sources */,
 				91608985197BAEDA0036C807 /* UIImageView+AFNetworking.m in Sources */,
 				91CD5D751975844C001E2814 /* AppDelegate.m in Sources */,
@@ -504,11 +575,16 @@
 				91608986197BAEDA0036C807 /* UIProgressView+AFNetworking.m in Sources */,
 				9160899E197BD0280036C807 /* OrgInfo.m in Sources */,
 				9160897B197BAEDA0036C807 /* AFNetworkReachabilityManager.m in Sources */,
+				91E7F2B619839169006C6CF3 /* CenterDrawerViewController.m in Sources */,
 				9160897F197BAEDA0036C807 /* AFURLResponseSerialization.m in Sources */,
 				9160897D197BAEDA0036C807 /* AFURLConnectionOperation.m in Sources */,
+				91E7F2BB19839181006C6CF3 /* LeftSideDrawerViewController.m in Sources */,
+				91E7F2A819839049006C6CF3 /* MMDrawerController.m in Sources */,
 				9160899B197BCFE30036C807 /* IntensiveInfo.m in Sources */,
 				916089A1197BD06C0036C807 /* RecommendInfo.m in Sources */,
 				91608984197BAEDA0036C807 /* UIButton+AFNetworking.m in Sources */,
+				91E7F2AA19839049006C6CF3 /* UIViewController+MMDrawerController.m in Sources */,
+				91E7F2A719839049006C6CF3 /* MMDrawerBarButtonItem.m in Sources */,
 				91608982197BAEDA0036C807 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				9160897C197BAEDA0036C807 /* AFSecurityPolicy.m in Sources */,
 				91608987197BAEDA0036C807 /* UIRefreshControl+AFNetworking.m in Sources */,

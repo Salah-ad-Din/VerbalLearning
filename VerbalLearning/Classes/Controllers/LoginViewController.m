@@ -9,6 +9,9 @@
 #import "LoginViewController.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "LoginXMLParser.h"
+#import "HomeDrawerViewController.h"
+#import "CenterDrawerViewController.h"
+#import "LeftSideDrawerViewController.h"
 
 #define ORGSELECT_CELL_HEIGHT               40.0f
 
@@ -19,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *orgSelectTableView;
 @property (weak, nonatomic) IBOutlet UILabel *ipLabel;
 @property (strong, nonatomic) NSMutableArray *orgInfoMArray;
+@property (strong, nonatomic) OrgInfo *selectOrgInfo;
 
 @end
 
@@ -51,11 +55,13 @@
         if (parser.errorMsg == nil) {
             //登录成功
             
+            //刷新登录界面信息
             _ipLabel.text = [NSString stringWithFormat:@"您的ip地址为：%@",parser.localIP];
             _orgInfoMArray = parser.orgInfoMArray;
             [_orgSelectTableView reloadData];
-            
             [self orgSelectTableViewAnimation];
+            
+            
         } else {
             //机构过期或其他错误
         }
@@ -143,6 +149,27 @@
     [self orgSelectTableViewAnimation];
     NSString *orgName = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
     [_orgSelectButton setTitle:orgName forState:UIControlStateNormal];
+    _selectOrgInfo = _orgInfoMArray[indexPath.row];
+}
+
+#pragma mark - login
+- (IBAction)login:(id)sender {
+    if (_selectOrgInfo) {
+        CenterDrawerViewController *centerViewController = [[CenterDrawerViewController alloc] init];
+        LeftSideDrawerViewController *leftViewController = [[LeftSideDrawerViewController alloc] init];
+        
+        HomeDrawerViewController *homeViewController = [[HomeDrawerViewController alloc] initWithCenterViewController:centerViewController leftDrawerViewController:leftViewController];
+        [homeViewController setShowsShadow:YES];
+        [homeViewController setMaximumRightDrawerWidth:200.0];
+        [homeViewController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+        [homeViewController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+        
+        [self.navigationController pushViewController:homeViewController animated:YES];
+    }
+    
+    NSLog(@"%@",_selectOrgInfo);
+    NSLog(@"%@",_selectOrgInfo.orgID);
+    NSLog(@"%@",_selectOrgInfo.orgName);
 }
 
 @end
