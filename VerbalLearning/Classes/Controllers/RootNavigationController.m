@@ -1,18 +1,18 @@
 //
-//  HomeDrawerViewController.m
+//  RootNavigationController.m
 //  VerbalLearning
 //
 //  Created by Raymond Lee on 14-7-26.
 //  Copyright (c) 2014年 rayxar. All rights reserved.
 //
 
-#import "HomeDrawerViewController.h"
+#import "RootNavigationController.h"
 
-@interface HomeDrawerViewController ()
+@interface RootNavigationController ()
 
 @end
 
-@implementation HomeDrawerViewController
+@implementation RootNavigationController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

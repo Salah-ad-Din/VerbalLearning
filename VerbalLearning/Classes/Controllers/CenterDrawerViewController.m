@@ -9,6 +9,8 @@
 #import "CenterDrawerViewController.h"
 
 @interface CenterDrawerViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *navigationButton;
+@property (weak, nonatomic) IBOutlet UILabel *orgNameLabel;
 
 @end
 
@@ -33,6 +35,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)navigationButtonPressed:(id)sender {
+    
 }
 
 @end

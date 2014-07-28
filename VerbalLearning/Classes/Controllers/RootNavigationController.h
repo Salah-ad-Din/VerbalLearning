@@ -1,5 +1,5 @@
 //
-//  LeftSideDrawerViewController.h
+//  RootNavigationController.h
 //  VerbalLearning
 //
 //  Created by Raymond Lee on 14-7-26.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LeftSideDrawerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface RootNavigationController : UINavigationController
 
 @end

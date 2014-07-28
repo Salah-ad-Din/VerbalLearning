@@ -46,6 +46,7 @@
 		91CD5D991975865D001E2814 /* Database in Resources */ = {isa = PBXBuildFile; fileRef = 91CD5D981975865D001E2814 /* Database */; };
 		91CD5DA51975874C001E2814 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD5DA31975874C001E2814 /* LoginViewController.m */; };
 		91CD5DA61975874C001E2814 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91CD5DA41975874C001E2814 /* LoginViewController.xib */; };
+		91D0F0991983AD9100547645 /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D0F0981983AD9100547645 /* RootNavigationController.m */; };
 		91E7F2A719839049006C6CF3 /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7F29F19839049006C6CF3 /* MMDrawerBarButtonItem.m */; };
 		91E7F2A819839049006C6CF3 /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7F2A219839049006C6CF3 /* MMDrawerController.m */; };
 		91E7F2A919839049006C6CF3 /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7F2A419839049006C6CF3 /* MMDrawerVisualState.m */; };
@@ -138,6 +139,8 @@
 		91CD5DA21975874C001E2814 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		91CD5DA31975874C001E2814 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		91CD5DA41975874C001E2814 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ../Controllers/LoginViewController.xib; sourceTree = "<group>"; };
+		91D0F0971983AD9100547645 /* RootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNavigationController.h; sourceTree = "<group>"; };
+		91D0F0981983AD9100547645 /* RootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNavigationController.m; sourceTree = "<group>"; };
 		91E7F29E19839049006C6CF3 /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
 		91E7F29F19839049006C6CF3 /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
 		91E7F2A019839049006C6CF3 /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
@@ -438,6 +441,8 @@
 				91E7F2B419839169006C6CF3 /* CenterDrawerViewController.m */,
 				91E7F2B819839181006C6CF3 /* LeftSideDrawerViewController.h */,
 				91E7F2B919839181006C6CF3 /* LeftSideDrawerViewController.m */,
+				91D0F0971983AD9100547645 /* RootNavigationController.h */,
+				91D0F0981983AD9100547645 /* RootNavigationController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -588,6 +593,7 @@
 				91608982197BAEDA0036C807 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				9160897C197BAEDA0036C807 /* AFSecurityPolicy.m in Sources */,
 				91608987197BAEDA0036C807 /* UIRefreshControl+AFNetworking.m in Sources */,
+				91D0F0991983AD9100547645 /* RootNavigationController.m in Sources */,
 				91608994197BBA7F0036C807 /* LoginXMLParser.m in Sources */,
 				91608988197BAEDA0036C807 /* UIWebView+AFNetworking.m in Sources */,
 				9160897A197BAEDA0036C807 /* AFHTTPSessionManager.m in Sources */,

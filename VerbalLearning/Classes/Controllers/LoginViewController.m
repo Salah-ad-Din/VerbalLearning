@@ -157,13 +157,11 @@
     if (_selectOrgInfo) {
         CenterDrawerViewController *centerViewController = [[CenterDrawerViewController alloc] init];
         LeftSideDrawerViewController *leftViewController = [[LeftSideDrawerViewController alloc] init];
-        
         HomeDrawerViewController *homeViewController = [[HomeDrawerViewController alloc] initWithCenterViewController:centerViewController leftDrawerViewController:leftViewController];
         [homeViewController setShowsShadow:YES];
-        [homeViewController setMaximumRightDrawerWidth:200.0];
+        [homeViewController setMaximumLeftDrawerWidth:280.0];
         [homeViewController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
         [homeViewController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
-        
         [self.navigationController pushViewController:homeViewController animated:YES];
     }
     
