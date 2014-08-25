@@ -56,13 +56,13 @@
             if ([orgStruct isKindOfClass:[NSDictionary class]]) {
                 OrgInfo *info = [[OrgInfo alloc] init];
                 info.orgName = [orgStruct objectForKey:LOGIN_TEXT];
-                info.orgID = [orgStruct objectForKey:LOGIN_ORGID];
+                info.orgID = [[orgStruct objectForKey:LOGIN_ORGID] integerValue];
                 [_orgInfoMArray addObject:info];
             } else if ([orgStruct isKindOfClass:[NSArray class]]) {
                 for (NSDictionary *orgDoc in orgStruct) {
                     OrgInfo *info = [[OrgInfo alloc] init];
                     info.orgName = [orgDoc objectForKey:LOGIN_TEXT];
-                    info.orgID = [orgDoc objectForKey:LOGIN_ORGID];
+                    info.orgID = [[orgDoc objectForKey:LOGIN_ORGID] integerValue];
                     [_orgInfoMArray addObject:info];
                 }
             }

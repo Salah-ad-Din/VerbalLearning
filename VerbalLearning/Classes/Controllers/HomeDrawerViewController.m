@@ -19,8 +19,18 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeDrawer) name:@"CloseDrawer" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openDrawer) name:@"OpenDrawer" object:nil];
+
     }
     return self;
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"CloseDrawer" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"OpenDrawer" object:nil];
+
 }
 
 - (void)viewDidLoad
@@ -49,6 +59,20 @@
 -(UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
+}
+
+- (void)closeDrawer
+{
+    [self closeDrawerAnimated:YES completion:^(BOOL finished) {
+        
+    }];
+}
+
+- (void)openDrawer
+{
+    [self openDrawerSide:MMDrawerSideLeft animated:YES completion:^(BOOL finished) {
+        
+    }];
 }
 
 @end

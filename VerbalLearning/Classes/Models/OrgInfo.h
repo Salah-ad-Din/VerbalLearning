@@ -11,6 +11,6 @@
 @interface OrgInfo : NSObject
 
 @property (nonatomic, strong) NSString *orgName;
-@property (nonatomic, strong) NSString *orgID;
+@property (nonatomic, assign) NSInteger orgID;
 
 @end

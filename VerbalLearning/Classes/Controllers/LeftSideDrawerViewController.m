@@ -7,6 +7,7 @@
 //
 
 #import "LeftSideDrawerViewController.h"
+#import "SpeakListViewController.h"
 
 @interface LeftSideDrawerViewController ()
 
@@ -38,6 +39,15 @@
 }
 
 #pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"CloseDrawer" object:nil];
+    } else if (indexPath.row == 2) {
+        SpeakListViewController *speak = [[SpeakListViewController alloc] init];
+        [self.navigationController pushViewController:speak animated:YES];
+    }
+}
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

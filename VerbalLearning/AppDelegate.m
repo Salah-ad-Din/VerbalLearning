@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "RootNavigationController.h"
+#import "DataSource.h"
 
 @implementation AppDelegate
 
@@ -23,6 +24,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+    [[DataSource sharedDataSource] copyDatabaseToDocument];
+
     return YES;
 }
 

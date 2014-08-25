@@ -43,10 +43,14 @@
                     </subviews>
                     <color key="backgroundColor" red="0.18823531269999999" green="0.2078431547" blue="0.21568629149999999" alpha="1" colorSpace="deviceRGB"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lDR-4W-sic">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lDR-4W-sic">
                     <rect key="frame" x="20" y="456" width="280" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.33725491166114807" green="0.729411780834198" blue="0.83921575546264648" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="IW9-9g-3PQ"/>
+                        <constraint firstAttribute="width" constant="280" id="U64-cZ-Pe2"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="18"/>
                     <state key="normal" title="开启“口语伙伴”之旅">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,7 +97,7 @@
                         <outlet property="delegate" destination="-1" id="2hn-Z4-Krg"/>
                     </connections>
                 </tableView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PF7-rr-Ain">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PF7-rr-Ain">
                     <rect key="frame" x="50" y="527" width="220" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -103,8 +107,14 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="BAs-DK-Xla" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="0o2-NC-Sus"/>
+                <constraint firstAttribute="trailing" secondItem="PF7-rr-Ain" secondAttribute="trailing" constant="50" id="37N-YZ-gqm"/>
                 <constraint firstAttribute="trailing" secondItem="BAs-DK-Xla" secondAttribute="trailing" id="7ED-eY-dnw"/>
+                <constraint firstItem="PF7-rr-Ain" firstAttribute="top" secondItem="lDR-4W-sic" secondAttribute="bottom" constant="23" id="MUK-GU-R0e"/>
+                <constraint firstItem="PF7-rr-Ain" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="QcX-hg-Ew5"/>
+                <constraint firstItem="lDR-4W-sic" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="RdQ-tb-1DR"/>
                 <constraint firstItem="BAs-DK-Xla" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZcE-Zc-PjA"/>
+                <constraint firstAttribute="bottom" secondItem="PF7-rr-Ain" secondAttribute="bottom" constant="20" id="a8e-Xz-OgI"/>
+                <constraint firstAttribute="trailing" secondItem="lDR-4W-sic" secondAttribute="trailing" constant="20" id="bkk-CE-IZI"/>
                 <constraint firstAttribute="bottom" secondItem="BAs-DK-Xla" secondAttribute="bottom" id="fDu-If-YGc"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>

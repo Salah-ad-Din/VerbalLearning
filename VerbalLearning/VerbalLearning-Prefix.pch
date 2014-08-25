@@ -31,3 +31,9 @@
 #define LOGIN_MD5                   @"_md5"
 #define LOGIN_ORGID                 @"_id"
 #define LOGIN_FAILDESC              @"faildesc"
+
+#define PATH_USERDATA                       @"/UserData"
+#define DIR_DATABASE                        @"Database"
+#define DATABASE_NAME                       @"VLDatabase.sqlite"
+
+#define RESOURCE_BASE_URL                    @"http://m.isayb.com/rs/"

@@ -10,29 +10,29 @@
 	<string>VerbalLearning</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>FFD9884F-351E-478B-87F1-E0CB62619FCD</key>
+		<key>5AACE99EF7D9209AE9DF4C71993B0C88F22D8306</key>
 		<string>https://github.com/Salah-ad-Din/VerbalLearning.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>VerbalLearning.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>FFD9884F-351E-478B-87F1-E0CB62619FCD</key>
+		<key>5AACE99EF7D9209AE9DF4C71993B0C88F22D8306</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Salah-ad-Din/VerbalLearning.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>FFD9884F-351E-478B-87F1-E0CB62619FCD</string>
+	<string>5AACE99EF7D9209AE9DF4C71993B0C88F22D8306</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>FFD9884F-351E-478B-87F1-E0CB62619FCD</string>
+			<string>5AACE99EF7D9209AE9DF4C71993B0C88F22D8306</string>
 			<key>IDESourceControlWCCName</key>
 			<string>VerbalLearning</string>
 		</dict>
