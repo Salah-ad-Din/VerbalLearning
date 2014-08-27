@@ -8,6 +8,8 @@
 
 #import "LeftSideDrawerViewController.h"
 #import "SpeakListViewController.h"
+#import "VLSingleton.h"
+#import "LoginViewController.h"
 
 @interface LeftSideDrawerViewController ()
 
@@ -41,11 +43,44 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"CloseDrawer" object:nil];
-    } else if (indexPath.row == 2) {
-        SpeakListViewController *speak = [[SpeakListViewController alloc] init];
-        [self.navigationController pushViewController:speak animated:YES];
+    SpeakListViewController *speak = [[SpeakListViewController alloc] init];
+    switch (indexPath.row) {
+        case 0:
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"CloseDrawer" object:nil];
+            break;
+        case 1:
+        case 4:
+        case 7:
+        case 8:
+            break;
+        case 2:
+            speak.xmlURL = nil;
+            break;
+        case 3:
+            speak.xmlURL = nil;
+            break;
+        case 5:
+        {
+            LoginViewController *rootVC = [LoginViewController rootViewController];
+            NSString *downDir = [[VLSingleton sharedInstance] getCachePath];
+            NSString *orgDir = [downDir stringByAppendingString:[NSString stringWithFormat:@"/%ld",(long)rootVC.selectOrgInfo.orgID]];
+            NSString *xmlPath = [orgDir stringByAppendingString:[NSString stringWithFormat:@"/intensive.xml"]];
+            speak.xmlURL = xmlPath;
+            [self.navigationController pushViewController:speak animated:YES];
+        }
+            break;
+        case 6:
+        {
+            LoginViewController *rootVC = [LoginViewController rootViewController];
+            NSString *downDir = [[VLSingleton sharedInstance] getCachePath];
+            NSString *orgDir = [downDir stringByAppendingString:[NSString stringWithFormat:@"/%ld",(long)rootVC.selectOrgInfo.orgID]];
+            NSString *xmlPath = [orgDir stringByAppendingString:[NSString stringWithFormat:@"/extensive.xml"]];
+            speak.xmlURL = xmlPath;
+            [self.navigationController pushViewController:speak animated:YES];
+        }
+            break;
+        default:
+            break;
     }
 }
 

@@ -13,11 +13,12 @@
 @interface StoreVoiceDataListParser : NSObject
 
 @property (nonatomic, retain, readwrite) NSMutableArray* serverlistArray;
-//@property (nonatomic, retain, readwrite) NSMutableArray* pkgsArray;
+@property (nonatomic, retain, readwrite) NSMutableArray* pkgsArray;
 @property (nonatomic, strong) NSMutableArray *intensiveMArray;
 @property (nonatomic, strong) NSMutableArray *extensiveMArray;
 @property (nonatomic, assign) NSInteger libID;
-- (void)loadWithPath:(NSString*)path;
+//- (void)loadWithPath:(NSString*)path;
+- (void)loadWithPkgData:(NSData*)filedata;
 - (void)loadWithData:(NSData*)data;
 
 @end

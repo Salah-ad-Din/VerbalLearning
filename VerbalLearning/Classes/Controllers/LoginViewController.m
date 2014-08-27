@@ -80,14 +80,15 @@ static LoginViewController *rootViewController;
             _selectExtensiveInfo = parser.extensiveInfo;
             [_orgSelectTableView reloadData];
             [self orgSelectTableViewAnimation];
+            
+            //下载每日一句XML
+            [self downloadDailyXMLCompletion:^{
+                
+            }];
         } else {
             //机构过期或其他错误
         }
         
-        //下载每日一句XML
-        [self downloadDailyXMLCompletion:^{
-            
-        }];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //网络错误
         

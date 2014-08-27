@@ -15,6 +15,7 @@
 #import "DailyWordsInfo.h"
 #import "VLSingleton.h"
 #import "AHKActionSheet.h"
+#import "SpeakListViewController.h"
 
 typedef enum {
     VIEWTYPE_INTENSIVE = 1,
@@ -38,6 +39,8 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet UILabel *englishDailyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *chineseDailyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *weekDayLabel;
+@property (weak, nonatomic) IBOutlet UIButton *intensiveMoreButton;
+@property (weak, nonatomic) IBOutlet UIButton *extensiveMoreButton;
 
 @end
 
@@ -62,7 +65,8 @@ typedef enum {
     NSString *xmlSavePath = [orgDir stringByAppendingString:[NSString stringWithFormat:@"/recommend.xml"]];
     
     StoreVoiceDataListParser *parser = [[StoreVoiceDataListParser alloc] init];
-    [parser loadWithPath:xmlSavePath];
+    NSData* filedata = [NSData dataWithContentsOfFile:xmlSavePath];
+    [parser loadWithData:filedata];
     self.parser = parser;
     
     NSString *dailyXMLPath = [downDir stringByAppendingString:@"/daily.xml"];
@@ -223,8 +227,9 @@ typedef enum {
     actionSheet.cancelButtonTextAttributes = @{ NSFontAttributeName : defaultFont,
                                                 NSForegroundColorAttributeName : [UIColor whiteColor] };
     
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 60)];
-    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(60, 20, 200, 20)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
+    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 320, 20)];
+    label1.textAlignment = NSTextAlignmentCenter;
     if (viewType == VIEWTYPE_INTENSIVE) {
         label1.text = [self.parser.intensiveMArray[order] title];
     } else {
@@ -256,6 +261,28 @@ typedef enum {
                                 handler:nil];
     }
     [actionSheet show];
+}
+
+
+//to be done
+- (IBAction)pressMoreButton:(id)sender
+{
+    SpeakListViewController *speak = [[SpeakListViewController alloc] init];
+    if (sender == self.intensiveMoreButton) {
+        LoginViewController *rootVC = [LoginViewController rootViewController];
+        NSString *downDir = [[VLSingleton sharedInstance] getCachePath];
+        NSString *orgDir = [downDir stringByAppendingString:[NSString stringWithFormat:@"/%ld",(long)rootVC.selectOrgInfo.orgID]];
+        NSString *xmlPath = [orgDir stringByAppendingString:[NSString stringWithFormat:@"/intensive.xml"]];
+        speak.xmlURL = xmlPath;
+        [self.navigationController pushViewController:speak animated:YES];
+    } else {
+        LoginViewController *rootVC = [LoginViewController rootViewController];
+        NSString *downDir = [[VLSingleton sharedInstance] getCachePath];
+        NSString *orgDir = [downDir stringByAppendingString:[NSString stringWithFormat:@"/%ld",(long)rootVC.selectOrgInfo.orgID]];
+        NSString *xmlPath = [orgDir stringByAppendingString:[NSString stringWithFormat:@"/extensive.xml"]];
+        speak.xmlURL = xmlPath;
+        [self.navigationController pushViewController:speak animated:YES];
+    }
 }
 
 @end

@@ -16,10 +16,60 @@
 @synthesize intensiveMArray;
 @synthesize extensiveMArray;
 
+/*
 - (void)loadWithPath:(NSString*)path
 {
     NSData* filedata = [NSData dataWithContentsOfFile:path];
     [self loadWithData:filedata];
+}
+ */
+
+- (void)loadWithPkgData:(NSData*)filedata
+{
+    TBXML* tbxml = [[TBXML tbxmlWithXMLData:filedata] retain];
+	
+	// Obtain root element
+	TBXMLElement * root = tbxml.rootXMLElement;
+    if (root) {
+        // head
+        TBXMLElement * header = [TBXML childElementNamed:@"head" parentElement:root];
+        if (header) {
+            // load serverList
+            TBXMLElement* serverlist = [TBXML childElementNamed:@"serverList" parentElement:header];
+            if (serverlist) {
+                TBXMLElement* urlElement = [TBXML childElementNamed:@"url" parentElement:serverlist];
+                NSMutableArray* array = [[NSMutableArray alloc] init];
+                while (urlElement) {
+                    NSString* urltxt = [TBXML textForElement:urlElement];
+                    [array addObject:urltxt];
+                    urlElement = [TBXML nextSiblingNamed:@"url" searchFromElement:urlElement];
+                }
+                self.serverlistArray = array;
+                [array release];
+            }
+        }
+        
+        // body
+        TBXMLElement * body = [TBXML childElementNamed:@"body" parentElement:root];
+		if (body) {
+            TBXMLElement * pkgs = [TBXML childElementNamed:@"pkgs" parentElement:body];
+            if (pkgs) {
+                //NSString* countText = [TBXML valueOfAttributeNamed:@"count" forElement:pkgs];
+                //V_NSLog(@"pkgs count: %d", [countText intValue]);
+                NSMutableArray* array = [[NSMutableArray alloc] init];
+                [self loadPkgs:pkgs withArray:array];
+                self.pkgsArray = array;
+                [array release];
+            }
+		}
+        
+    }
+	
+	if (root) {
+		
+	}
+	[tbxml release];
+    
 }
 
 - (void)loadWithData:(NSData*)filedata

@@ -56,6 +56,7 @@
 		917BF9691997C42D00A359EB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917BF9681997C42D00A359EB /* SystemConfiguration.framework */; };
 		917BF96B1997C43600A359EB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917BF96A1997C43600A359EB /* CoreText.framework */; };
 		917BF96D1997C44400A359EB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917BF96C1997C44400A359EB /* QuartzCore.framework */; };
+		91C727DB19AE196900FDD9C5 /* SpeakListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C727DA19AE196900FDD9C5 /* SpeakListTableViewCell.m */; };
 		91CD5D651975844C001E2814 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CD5D641975844C001E2814 /* Foundation.framework */; };
 		91CD5D671975844C001E2814 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CD5D661975844C001E2814 /* CoreGraphics.framework */; };
 		91CD5D691975844C001E2814 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CD5D681975844C001E2814 /* UIKit.framework */; };
@@ -192,6 +193,8 @@
 		917BF9681997C42D00A359EB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		917BF96A1997C43600A359EB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		917BF96C1997C44400A359EB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		91C727D919AE196900FDD9C5 /* SpeakListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakListTableViewCell.h; sourceTree = "<group>"; };
+		91C727DA19AE196900FDD9C5 /* SpeakListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakListTableViewCell.m; sourceTree = "<group>"; };
 		91CD5D611975844C001E2814 /* VerbalLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VerbalLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91CD5D641975844C001E2814 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		91CD5D661975844C001E2814 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -479,6 +482,15 @@
 			path = iPublicUtility;
 			sourceTree = "<group>";
 		};
+		91C727D819AE138B00FDD9C5 /* Speak */ = {
+			isa = PBXGroup;
+			children = (
+				91C727D919AE196900FDD9C5 /* SpeakListTableViewCell.h */,
+				91C727DA19AE196900FDD9C5 /* SpeakListTableViewCell.m */,
+			);
+			name = Speak;
+			sourceTree = "<group>";
+		};
 		91CD5D581975844C001E2814 = {
 			isa = PBXGroup;
 			children = (
@@ -605,6 +617,7 @@
 		91CD5D9F197586B3001E2814 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				91C727D819AE138B00FDD9C5 /* Speak */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -814,6 +827,7 @@
 				91E1B9EC19AB835B00DF1A2C /* UIImage+AHKAdditions.m in Sources */,
 				9160897D197BAEDA0036C807 /* AFURLConnectionOperation.m in Sources */,
 				91E7F2BB19839181006C6CF3 /* LeftSideDrawerViewController.m in Sources */,
+				91C727DB19AE196900FDD9C5 /* SpeakListTableViewCell.m in Sources */,
 				91E7F2A819839049006C6CF3 /* MMDrawerController.m in Sources */,
 				9160899B197BCFE30036C807 /* IntensiveInfo.m in Sources */,
 				916089A1197BD06C0036C807 /* RecommendInfo.m in Sources */,
