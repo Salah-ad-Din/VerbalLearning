@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oh5-ZL-Bsh">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oh5-ZL-Bsh">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -41,7 +41,7 @@
                     </subviews>
                     <color key="backgroundColor" red="0.18823529410000001" green="0.20784313730000001" blue="0.21960784310000001" alpha="1" colorSpace="deviceRGB"/>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zl1-7F-58x">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zl1-7F-58x">
                     <rect key="frame" x="0.0" y="112" width="320" height="456"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -50,13 +50,27 @@
                         <outlet property="delegate" destination="-1" id="PVN-TS-OVp"/>
                     </connections>
                 </tableView>
-                <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gVv-KC-snR">
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="gVv-KC-snR">
                     <rect key="frame" x="0.0" y="68" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="gVv-KC-snR" firstAttribute="top" secondItem="oh5-ZL-Bsh" secondAttribute="bottom" id="3s0-9g-4NQ"/>
+                <constraint firstItem="gVv-KC-snR" firstAttribute="top" secondItem="oh5-ZL-Bsh" secondAttribute="bottom" id="4b4-rC-gGo"/>
+                <constraint firstAttribute="trailing" secondItem="zl1-7F-58x" secondAttribute="trailing" id="DTX-fG-TCc"/>
+                <constraint firstItem="zl1-7F-58x" firstAttribute="top" secondItem="gVv-KC-snR" secondAttribute="bottom" id="MYu-ko-MjZ"/>
+                <constraint firstAttribute="bottom" secondItem="zl1-7F-58x" secondAttribute="bottom" id="PFo-dr-GLc"/>
+                <constraint firstItem="gVv-KC-snR" firstAttribute="leading" secondItem="oh5-ZL-Bsh" secondAttribute="leading" id="VJg-aq-JFA"/>
+                <constraint firstItem="gVv-KC-snR" firstAttribute="trailing" secondItem="oh5-ZL-Bsh" secondAttribute="trailing" id="aEW-2z-ygK"/>
+                <constraint firstItem="gVv-KC-snR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="68" id="nci-A0-1w7"/>
+                <constraint firstItem="zl1-7F-58x" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sVH-5J-rRO"/>
+                <constraint firstItem="gVv-KC-snR" firstAttribute="trailing" secondItem="zl1-7F-58x" secondAttribute="trailing" id="seh-kX-WuM"/>
+                <constraint firstItem="gVv-KC-snR" firstAttribute="leading" secondItem="zl1-7F-58x" secondAttribute="leading" id="tCb-FV-Xh2"/>
+                <constraint firstItem="oh5-ZL-Bsh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ydj-2j-SFv"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

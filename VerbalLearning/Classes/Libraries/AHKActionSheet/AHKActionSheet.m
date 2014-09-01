@@ -171,6 +171,7 @@ static const CGFloat kCancelButtonShadowHeightRatio = 0.333f;
     if (item.type != AHKActionSheetButtonTypeDisabled) {
         [self dismissAnimated:YES duration:self.animationDuration completion:item.handler];
     }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

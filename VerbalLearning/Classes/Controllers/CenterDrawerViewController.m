@@ -16,6 +16,8 @@
 #import "VLSingleton.h"
 #import "AHKActionSheet.h"
 #import "SpeakListViewController.h"
+#import "CourseParser.h"
+#import "SpeakDetailListViewController.h"
 
 typedef enum {
     VIEWTYPE_INTENSIVE = 1,
@@ -250,21 +252,46 @@ typedef enum {
     }
     for (int i = 0; i < count; i++) {
         NSString *title = nil;
+        NSString *xmlFileName = nil;
+
         if (viewType == VIEWTYPE_INTENSIVE) {
             title = [[[self.parser.intensiveMArray[order] dataPkgCourseInfoArray] objectAtIndex:i] title];
+            xmlFileName = [[[self.parser.intensiveMArray[order] dataPkgCourseInfoArray] objectAtIndex:i] file];
         } else {
-            title = [[[self.parser.intensiveMArray[order] dataPkgCourseInfoArray] objectAtIndex:i] title];
+            title = [[[self.parser.extensiveMArray[order] dataPkgCourseInfoArray] objectAtIndex:i] title];
+            xmlFileName = [[[self.parser.extensiveMArray[order] dataPkgCourseInfoArray] objectAtIndex:i] file];
         }
+        
+        //选择block
+        void(^AHKActionSheetHandler)(AHKActionSheet *actionSheet) = ^(AHKActionSheet *actionSheet){
+            NSString *dowloadURL = [RESOURCE_BASE_URL stringByAppendingString:xmlFileName];
+            
+            NSString *saveDocument = [[VLSingleton sharedInstance] getCachePath];
+            saveDocument = [saveDocument stringByAppendingString:[NSString stringWithFormat:@"/%ld/",(long)[LoginViewController rootViewController].selectOrgInfo.orgID]];
+            NSString *savePath = [saveDocument stringByAppendingString:xmlFileName];
+            
+            [self downloadResourceXML:dowloadURL withSavePath:savePath Completion:^{
+                //解析xml,推出下一个
+                CourseParser *parser = [[CourseParser alloc] init];
+                parser.resourcePath = saveDocument;
+                [parser loadCourses:xmlFileName];
+                
+                SpeakDetailListViewController *detailList = [[SpeakDetailListViewController alloc] init];
+                detailList.course = parser.course;
+                [self.navigationController pushViewController:detailList animated:YES];
+            }];
+            
+        };
+        
         [actionSheet addButtonWithTitle:title
                                   image:nil
                                    type:AHKActionSheetButtonTypeDefault
-                                handler:nil];
+                                handler:AHKActionSheetHandler];
     }
     [actionSheet show];
 }
 
 
-//to be done
 - (IBAction)pressMoreButton:(id)sender
 {
     SpeakListViewController *speak = [[SpeakListViewController alloc] init];
@@ -283,6 +310,30 @@ typedef enum {
         speak.xmlURL = xmlPath;
         [self.navigationController pushViewController:speak animated:YES];
     }
+}
+
+- (void)downloadResourceXML:(NSString *)URL withSavePath:(NSString *)savePath Completion:(void (^)(void))completion
+{
+    //保存xml文件
+    NSURL *url = [NSURL URLWithString:URL];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSProgress *progress;
+    //下载XML
+    [[AFHTTPSessionManager manager] setResponseSerializer:[AFHTTPResponseSerializer serializer]];
+    NSURLSessionDownloadTask * downloadTask = [[AFHTTPSessionManager manager] downloadTaskWithRequest:request progress:&progress destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+        //保存XML文件
+        NSURL *filePath = [NSURL fileURLWithPath:savePath isDirectory:NO];
+        //先删除一遍
+        [[NSFileManager defaultManager] removeItemAtPath:[filePath path] error:nil];
+        return filePath;
+    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        if (error == nil) {
+            completion();
+        } else {
+            
+        }
+    }];
+    [downloadTask resume];
 }
 
 @end

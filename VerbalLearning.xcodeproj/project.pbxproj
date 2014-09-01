@@ -56,6 +56,24 @@
 		917BF9691997C42D00A359EB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917BF9681997C42D00A359EB /* SystemConfiguration.framework */; };
 		917BF96B1997C43600A359EB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917BF96A1997C43600A359EB /* CoreText.framework */; };
 		917BF96D1997C44400A359EB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917BF96C1997C44400A359EB /* QuartzCore.framework */; };
+		9181917219B179F60043DE12 /* SpeakDetailListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9181917019B179F60043DE12 /* SpeakDetailListViewController.m */; };
+		9181917319B179F60043DE12 /* SpeakDetailListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9181917119B179F60043DE12 /* SpeakDetailListViewController.xib */; };
+		9181918619B37E170043DE12 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 9181917719B37E170043DE12 /* Course.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9181918719B37E170043DE12 /* CourseParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9181917919B37E170043DE12 /* CourseParser.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9181918819B37E170043DE12 /* DayParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9181917B19B37E170043DE12 /* DayParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9181918919B37E170043DE12 /* Lesson.m in Sources */ = {isa = PBXBuildFile; fileRef = 9181917D19B37E170043DE12 /* Lesson.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9181918A19B37E170043DE12 /* NSPhoneticSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 9181917F19B37E170043DE12 /* NSPhoneticSymbol.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9181918B19B37E170043DE12 /* Sentence.m in Sources */ = {isa = PBXBuildFile; fileRef = 9181918119B37E170043DE12 /* Sentence.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9181918C19B37E170043DE12 /* Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 9181918319B37E170043DE12 /* Teacher.m */; };
+		9181918D19B37E170043DE12 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = 9181918519B37E170043DE12 /* Word.m */; };
+		918191A119B383300043DE12 /* ISaybEncrypt2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9181919219B383300043DE12 /* ISaybEncrypt2.mm */; };
+		918191A219B383300043DE12 /* libIsaybEncrypt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9181919319B383300043DE12 /* libIsaybEncrypt.a */; };
+		918191A319B383300043DE12 /* base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9181919519B383300043DE12 /* base64.cpp */; };
+		918191A419B383300043DE12 /* encryp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9181919819B383300043DE12 /* encryp.cpp */; };
+		918191A519B383300043DE12 /* md5_dgst.c in Sources */ = {isa = PBXBuildFile; fileRef = 9181919C19B383300043DE12 /* md5_dgst.c */; };
+		918191A619B383300043DE12 /* md5_one.c in Sources */ = {isa = PBXBuildFile; fileRef = 9181919E19B383300043DE12 /* md5_one.c */; };
+		918191A719B383300043DE12 /* SmartEncrypt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9181919F19B383300043DE12 /* SmartEncrypt.cpp */; };
+		919EB21319B4BEC6009486F7 /* SpeakDetailListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 919EB21219B4BEC6009486F7 /* SpeakDetailListTableViewCell.m */; };
 		91C727DB19AE196900FDD9C5 /* SpeakListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C727DA19AE196900FDD9C5 /* SpeakListTableViewCell.m */; };
 		91CD5D651975844C001E2814 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CD5D641975844C001E2814 /* Foundation.framework */; };
 		91CD5D671975844C001E2814 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CD5D661975844C001E2814 /* CoreGraphics.framework */; };
@@ -193,6 +211,44 @@
 		917BF9681997C42D00A359EB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		917BF96A1997C43600A359EB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		917BF96C1997C44400A359EB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9181916F19B179F60043DE12 /* SpeakDetailListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakDetailListViewController.h; sourceTree = "<group>"; };
+		9181917019B179F60043DE12 /* SpeakDetailListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakDetailListViewController.m; sourceTree = "<group>"; };
+		9181917119B179F60043DE12 /* SpeakDetailListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SpeakDetailListViewController.xib; path = ../Controllers/SpeakDetailListViewController.xib; sourceTree = "<group>"; };
+		9181917619B37E170043DE12 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		9181917719B37E170043DE12 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		9181917819B37E170043DE12 /* CourseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseParser.h; sourceTree = "<group>"; };
+		9181917919B37E170043DE12 /* CourseParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CourseParser.mm; sourceTree = "<group>"; };
+		9181917A19B37E170043DE12 /* DayParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayParser.h; sourceTree = "<group>"; };
+		9181917B19B37E170043DE12 /* DayParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayParser.m; sourceTree = "<group>"; };
+		9181917C19B37E170043DE12 /* Lesson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson.h; sourceTree = "<group>"; };
+		9181917D19B37E170043DE12 /* Lesson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lesson.m; sourceTree = "<group>"; };
+		9181917E19B37E170043DE12 /* NSPhoneticSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSPhoneticSymbol.h; sourceTree = "<group>"; };
+		9181917F19B37E170043DE12 /* NSPhoneticSymbol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSPhoneticSymbol.m; sourceTree = "<group>"; };
+		9181918019B37E170043DE12 /* Sentence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sentence.h; sourceTree = "<group>"; };
+		9181918119B37E170043DE12 /* Sentence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sentence.m; sourceTree = "<group>"; };
+		9181918219B37E170043DE12 /* Teacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teacher.h; sourceTree = "<group>"; };
+		9181918319B37E170043DE12 /* Teacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teacher.m; sourceTree = "<group>"; };
+		9181918419B37E170043DE12 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
+		9181918519B37E170043DE12 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
+		9181918E19B382F40043DE12 /* VoiceDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoiceDef.h; sourceTree = "<group>"; };
+		9181919019B383300043DE12 /* IsaybEncrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsaybEncrypt.h; sourceTree = "<group>"; };
+		9181919119B383300043DE12 /* ISaybEncrypt2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISaybEncrypt2.h; sourceTree = "<group>"; };
+		9181919219B383300043DE12 /* ISaybEncrypt2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ISaybEncrypt2.mm; sourceTree = "<group>"; };
+		9181919319B383300043DE12 /* libIsaybEncrypt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libIsaybEncrypt.a; sourceTree = "<group>"; };
+		9181919519B383300043DE12 /* base64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = base64.cpp; sourceTree = "<group>"; };
+		9181919619B383300043DE12 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		9181919719B383300043DE12 /* e_os2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = e_os2.h; sourceTree = "<group>"; };
+		9181919819B383300043DE12 /* encryp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = encryp.cpp; sourceTree = "<group>"; };
+		9181919919B383300043DE12 /* encryp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encryp.h; sourceTree = "<group>"; };
+		9181919A19B383300043DE12 /* md32_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md32_common.h; sourceTree = "<group>"; };
+		9181919B19B383300043DE12 /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
+		9181919C19B383300043DE12 /* md5_dgst.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = md5_dgst.c; sourceTree = "<group>"; };
+		9181919D19B383300043DE12 /* md5_locl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5_locl.h; sourceTree = "<group>"; };
+		9181919E19B383300043DE12 /* md5_one.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = md5_one.c; sourceTree = "<group>"; };
+		9181919F19B383300043DE12 /* SmartEncrypt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmartEncrypt.cpp; sourceTree = "<group>"; };
+		918191A019B383300043DE12 /* SmartEncrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartEncrypt.h; sourceTree = "<group>"; };
+		919EB21119B4BEC6009486F7 /* SpeakDetailListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakDetailListTableViewCell.h; sourceTree = "<group>"; };
+		919EB21219B4BEC6009486F7 /* SpeakDetailListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakDetailListTableViewCell.m; sourceTree = "<group>"; };
 		91C727D919AE196900FDD9C5 /* SpeakListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakListTableViewCell.h; sourceTree = "<group>"; };
 		91C727DA19AE196900FDD9C5 /* SpeakListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakListTableViewCell.m; sourceTree = "<group>"; };
 		91CD5D611975844C001E2814 /* VerbalLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VerbalLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,6 +305,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				918191A219B383300043DE12 /* libIsaybEncrypt.a in Frameworks */,
 				917BF96D1997C44400A359EB /* QuartzCore.framework in Frameworks */,
 				917BF96B1997C43600A359EB /* CoreText.framework in Frameworks */,
 				917BF9691997C42D00A359EB /* SystemConfiguration.framework in Frameworks */,
@@ -281,6 +338,8 @@
 			children = (
 				91310681198DC9D8006B7364 /* SpeakListViewController.h */,
 				91310682198DC9D8006B7364 /* SpeakListViewController.m */,
+				9181916F19B179F60043DE12 /* SpeakDetailListViewController.h */,
+				9181917019B179F60043DE12 /* SpeakDetailListViewController.m */,
 			);
 			name = Speak;
 			sourceTree = "<group>";
@@ -356,6 +415,7 @@
 		9160898A197BB81F0036C807 /* XMLParser */ = {
 			isa = PBXGroup;
 			children = (
+				9181917519B37E170043DE12 /* CourseParser */,
 				917BF9401997A99000A359EB /* TBXML */,
 				917BF93319975D9500A359EB /* Home */,
 				9160898E197BB8330036C807 /* Login */,
@@ -482,11 +542,78 @@
 			path = iPublicUtility;
 			sourceTree = "<group>";
 		};
+		9181917419B17A0D0043DE12 /* Speak */ = {
+			isa = PBXGroup;
+			children = (
+				9181917119B179F60043DE12 /* SpeakDetailListViewController.xib */,
+				91310683198DC9D8006B7364 /* SpeakListViewController.xib */,
+			);
+			name = Speak;
+			sourceTree = "<group>";
+		};
+		9181917519B37E170043DE12 /* CourseParser */ = {
+			isa = PBXGroup;
+			children = (
+				9181918E19B382F40043DE12 /* VoiceDef.h */,
+				9181917619B37E170043DE12 /* Course.h */,
+				9181917719B37E170043DE12 /* Course.m */,
+				9181917819B37E170043DE12 /* CourseParser.h */,
+				9181917919B37E170043DE12 /* CourseParser.mm */,
+				9181917A19B37E170043DE12 /* DayParser.h */,
+				9181917B19B37E170043DE12 /* DayParser.m */,
+				9181917C19B37E170043DE12 /* Lesson.h */,
+				9181917D19B37E170043DE12 /* Lesson.m */,
+				9181917E19B37E170043DE12 /* NSPhoneticSymbol.h */,
+				9181917F19B37E170043DE12 /* NSPhoneticSymbol.m */,
+				9181918019B37E170043DE12 /* Sentence.h */,
+				9181918119B37E170043DE12 /* Sentence.m */,
+				9181918219B37E170043DE12 /* Teacher.h */,
+				9181918319B37E170043DE12 /* Teacher.m */,
+				9181918419B37E170043DE12 /* Word.h */,
+				9181918519B37E170043DE12 /* Word.m */,
+			);
+			path = CourseParser;
+			sourceTree = "<group>";
+		};
+		9181918F19B383300043DE12 /* XMLDecrypt */ = {
+			isa = PBXGroup;
+			children = (
+				9181919019B383300043DE12 /* IsaybEncrypt.h */,
+				9181919119B383300043DE12 /* ISaybEncrypt2.h */,
+				9181919219B383300043DE12 /* ISaybEncrypt2.mm */,
+				9181919319B383300043DE12 /* libIsaybEncrypt.a */,
+				9181919419B383300043DE12 /* SmartEncryt */,
+			);
+			name = XMLDecrypt;
+			path = XMLParser/XMLDecrypt;
+			sourceTree = "<group>";
+		};
+		9181919419B383300043DE12 /* SmartEncryt */ = {
+			isa = PBXGroup;
+			children = (
+				9181919519B383300043DE12 /* base64.cpp */,
+				9181919619B383300043DE12 /* base64.h */,
+				9181919719B383300043DE12 /* e_os2.h */,
+				9181919819B383300043DE12 /* encryp.cpp */,
+				9181919919B383300043DE12 /* encryp.h */,
+				9181919A19B383300043DE12 /* md32_common.h */,
+				9181919B19B383300043DE12 /* md5.h */,
+				9181919C19B383300043DE12 /* md5_dgst.c */,
+				9181919D19B383300043DE12 /* md5_locl.h */,
+				9181919E19B383300043DE12 /* md5_one.c */,
+				9181919F19B383300043DE12 /* SmartEncrypt.cpp */,
+				918191A019B383300043DE12 /* SmartEncrypt.h */,
+			);
+			path = SmartEncryt;
+			sourceTree = "<group>";
+		};
 		91C727D819AE138B00FDD9C5 /* Speak */ = {
 			isa = PBXGroup;
 			children = (
 				91C727D919AE196900FDD9C5 /* SpeakListTableViewCell.h */,
 				91C727DA19AE196900FDD9C5 /* SpeakListTableViewCell.m */,
+				919EB21119B4BEC6009486F7 /* SpeakDetailListTableViewCell.h */,
+				919EB21219B4BEC6009486F7 /* SpeakDetailListTableViewCell.m */,
 			);
 			name = Speak;
 			sourceTree = "<group>";
@@ -587,6 +714,7 @@
 				91CD5D9F197586B3001E2814 /* Views */,
 				91CD5DA019758702001E2814 /* Xibs */,
 				91608951197BAEDA0036C807 /* Libraries */,
+				9181918F19B383300043DE12 /* XMLDecrypt */,
 				9160898A197BB81F0036C807 /* XMLParser */,
 				917BF937199766A300A359EB /* Database */,
 				917BF9471997AD9500A359EB /* WaveDecode */,
@@ -625,6 +753,7 @@
 		91CD5DA019758702001E2814 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				9181917419B17A0D0043DE12 /* Speak */,
 				91CD5DA71975875C001E2814 /* LogIn */,
 			);
 			path = Xibs;
@@ -642,7 +771,6 @@
 		91CD5DA71975875C001E2814 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
-				91310683198DC9D8006B7364 /* SpeakListViewController.xib */,
 				91E7F2B519839169006C6CF3 /* CenterDrawerViewController.xib */,
 				91E7F2BA19839181006C6CF3 /* LeftSideDrawerViewController.xib */,
 				91CD5DA41975874C001E2814 /* LoginViewController.xib */,
@@ -784,6 +912,7 @@
 				91E7F2B719839169006C6CF3 /* CenterDrawerViewController.xib in Resources */,
 				91CD5DA61975874C001E2814 /* LoginViewController.xib in Resources */,
 				91310685198DC9D8006B7364 /* SpeakListViewController.xib in Resources */,
+				9181917319B179F60043DE12 /* SpeakDetailListViewController.xib in Resources */,
 				91CD5D6F1975844C001E2814 /* InfoPlist.strings in Resources */,
 				91CD5D771975844C001E2814 /* Images.xcassets in Resources */,
 				91CD5D991975865D001E2814 /* Database in Resources */,
@@ -805,10 +934,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9181918D19B37E170043DE12 /* Word.m in Sources */,
+				918191A519B383300043DE12 /* md5_dgst.c in Sources */,
 				91E7F2A919839049006C6CF3 /* MMDrawerVisualState.m in Sources */,
 				91608991197BB87A0036C807 /* XMLParser.m in Sources */,
+				9181918919B37E170043DE12 /* Lesson.m in Sources */,
 				917BF9621997B50A00A359EB /* CAStreamBasicDescription.cpp in Sources */,
 				91E7F2AD198390AD006C6CF3 /* HomeDrawerViewController.m in Sources */,
+				919EB21319B4BEC6009486F7 /* SpeakDetailListTableViewCell.m in Sources */,
+				9181917219B179F60043DE12 /* SpeakDetailListViewController.m in Sources */,
 				91608978197BAEDA0036C807 /* AFHTTPRequestOperation.m in Sources */,
 				917BF93D19979E1400A359EB /* DatabaseOperation.m in Sources */,
 				91608985197BAEDA0036C807 /* UIImageView+AFNetworking.m in Sources */,
@@ -826,14 +960,20 @@
 				915AC41C19A7999800B6DE8C /* VLSingleton.m in Sources */,
 				91E1B9EC19AB835B00DF1A2C /* UIImage+AHKAdditions.m in Sources */,
 				9160897D197BAEDA0036C807 /* AFURLConnectionOperation.m in Sources */,
+				9181918B19B37E170043DE12 /* Sentence.m in Sources */,
 				91E7F2BB19839181006C6CF3 /* LeftSideDrawerViewController.m in Sources */,
 				91C727DB19AE196900FDD9C5 /* SpeakListTableViewCell.m in Sources */,
 				91E7F2A819839049006C6CF3 /* MMDrawerController.m in Sources */,
 				9160899B197BCFE30036C807 /* IntensiveInfo.m in Sources */,
 				916089A1197BD06C0036C807 /* RecommendInfo.m in Sources */,
+				9181918A19B37E170043DE12 /* NSPhoneticSymbol.m in Sources */,
 				917BF9611997B50A00A359EB /* CADebugMacros.cpp in Sources */,
 				917BF93219975D2F00A359EB /* VoicePkgInfoObject.m in Sources */,
+				918191A319B383300043DE12 /* base64.cpp in Sources */,
+				9181918C19B37E170043DE12 /* Teacher.m in Sources */,
+				9181918819B37E170043DE12 /* DayParser.m in Sources */,
 				91608984197BAEDA0036C807 /* UIButton+AFNetworking.m in Sources */,
+				918191A719B383300043DE12 /* SmartEncrypt.cpp in Sources */,
 				917BF93619975DA000A359EB /* StoreVoiceDataListParser.m in Sources */,
 				91E7F2AA19839049006C6CF3 /* UIViewController+MMDrawerController.m in Sources */,
 				91310684198DC9D8006B7364 /* SpeakListViewController.m in Sources */,
@@ -841,6 +981,7 @@
 				91608982197BAEDA0036C807 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				9160897C197BAEDA0036C807 /* AFSecurityPolicy.m in Sources */,
 				917BF9461997A99000A359EB /* TBXML.m in Sources */,
+				918191A619B383300043DE12 /* md5_one.c in Sources */,
 				91608987197BAEDA0036C807 /* UIRefreshControl+AFNetworking.m in Sources */,
 				91E1B9EA19AB835B00DF1A2C /* AHKActionSheet.m in Sources */,
 				91D0F0991983AD9100547645 /* RootNavigationController.m in Sources */,
@@ -851,7 +992,10 @@
 				917BF9561997AD9500A359EB /* AQRecorder.mm in Sources */,
 				917BF93A199766BE00A359EB /* DataSource.m in Sources */,
 				9160897A197BAEDA0036C807 /* AFHTTPSessionManager.m in Sources */,
+				9181918719B37E170043DE12 /* CourseParser.mm in Sources */,
 				91608983197BAEDA0036C807 /* UIAlertView+AFNetworking.m in Sources */,
+				918191A419B383300043DE12 /* encryp.cpp in Sources */,
+				9181918619B37E170043DE12 /* Course.m in Sources */,
 				91608998197BCF130036C807 /* ExtensiveInfo.m in Sources */,
 				91E1B9EB19AB835B00DF1A2C /* AHKActionSheetViewController.m in Sources */,
 				9160897E197BAEDA0036C807 /* AFURLRequestSerialization.m in Sources */,
@@ -859,6 +1003,7 @@
 				917BF9581997AD9500A359EB /* WaveFile.cpp in Sources */,
 				9160898D197BB81F0036C807 /* XMLDictionary.m in Sources */,
 				91608980197BAEDA0036C807 /* AFURLSessionManager.m in Sources */,
+				918191A119B383300043DE12 /* ISaybEncrypt2.mm in Sources */,
 				91CD5D711975844C001E2814 /* main.m in Sources */,
 				91CD5DA51975874C001E2814 /* LoginViewController.m in Sources */,
 			);
@@ -906,6 +1051,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv7,
+					arm64,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -935,6 +1084,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lz";
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
 		};
@@ -942,6 +1092,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv7,
+					arm64,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -968,6 +1122,7 @@
 				OTHER_LDFLAGS = "-lz";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Release;
 		};
@@ -984,6 +1139,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/VerbalLearning/Classes/WaveDecode",
 					"$(PROJECT_DIR)/VerbalLearning/Classes/WaveDecode/VoiceScore",
+					"$(PROJECT_DIR)/VerbalLearning/Classes/XMLParser/XMLDecrypt",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1003,6 +1159,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/VerbalLearning/Classes/WaveDecode",
 					"$(PROJECT_DIR)/VerbalLearning/Classes/WaveDecode/VoiceScore",
+					"$(PROJECT_DIR)/VerbalLearning/Classes/XMLParser/XMLDecrypt",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

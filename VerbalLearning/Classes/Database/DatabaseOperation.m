@@ -61,7 +61,7 @@ static DatabaseOperation *_shareDatabase;
     [databaseLock lock];
 
     sqlite3_stmt *statement;
-	NSString *sql = @"INSERT INTO OrgInfo (OrgID, OrgName) VALUES(?,?)";
+	NSString *sql = @"INSERT INTO OrgInfo (O rgID, OrgName) VALUES(?,?)";
 	int success = sqlite3_prepare_v2((sqlite3 *)_database, [sql UTF8String], -1, &statement, NULL);
 	if (success == SQLITE_OK) {
         NSInteger i = 1;
