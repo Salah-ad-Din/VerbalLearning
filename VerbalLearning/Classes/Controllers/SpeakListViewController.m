@@ -23,7 +23,8 @@
 @property (strong, nonatomic) StoreVoiceDataListParser *parser;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *speakListTableView;
-
+@property (weak, nonatomic) IBOutlet UILabel *orgNameLabel;
+@property (strong, nonatomic) NSMutableArray *tableViewData;
 @end
 
 @implementation SpeakListViewController
@@ -40,7 +41,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    _orgNameLabel.text = [LoginViewController rootViewController].selectOrgInfo.orgName;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,6 +61,12 @@
     NSData* filedata = [NSData dataWithContentsOfFile:xmlURL];
     [parser loadWithPkgData:filedata];
     self.parser = parser;
+    
+    self.tableViewData = [[NSMutableArray alloc] initWithCapacity:0];
+    [self.tableViewData addObjectsFromArray:self.parser.pkgsArray];
+//    for (id obj in parser.pkgsArray) {
+//        [self.tableViewData addObject:parser.pkgsArray];
+//    }
 }
 
 - (void)downloadResourceXML:(NSString *)URL withSavePath:(NSString *)savePath Completion:(void (^)(void))completion
@@ -159,7 +167,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.parser.pkgsArray count];
+    return [self.tableViewData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -169,11 +177,30 @@
     if (nil == cell) {
         cell = [[SpeakListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
-    DownloadDataPkgInfo *info = self.parser.pkgsArray[indexPath.row];
+    DownloadDataPkgInfo *info = self.tableViewData[indexPath.row];
     NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",RESOURCE_BASE_URL,info.coverURL]];
     [cell.iconImageView setImageWithURL:imageURL placeholderImage:nil];
     cell.titleLabel.text = info.title;
     return cell;
+}
+
+#pragma mark - UISearchBarDelegate
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [self.tableViewData removeAllObjects];
+    if ([searchText isEqualToString:@""]) {
+        [self.tableViewData addObjectsFromArray:self.parser.pkgsArray];
+        [self.speakListTableView reloadData];
+        return;
+    }
+    NSLog(@"%@",searchText);
+    for (DownloadDataPkgInfo *info in self.parser.pkgsArray) {
+        NSRange range = [info.title rangeOfString:searchText];
+        if (range.location != NSNotFound) {
+            [self.tableViewData addObject:info];
+        }
+    }
+    [self.speakListTableView reloadData];
 }
 
 

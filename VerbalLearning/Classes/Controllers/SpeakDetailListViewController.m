@@ -9,8 +9,11 @@
 #import "SpeakDetailListViewController.h"
 #import "SpeakDetailListTableViewCell.h"
 #import "Lesson.h"
+#import "LoginViewController.h"
 
 @interface SpeakDetailListViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *orgNameLabel;
 
 @end
 
@@ -28,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    _orgNameLabel.text = [LoginViewController rootViewController].selectOrgInfo.orgName;
 }
 
 - (void)didReceiveMemoryWarning

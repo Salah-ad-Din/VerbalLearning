@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SpeakListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface SpeakListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @property (nonatomic, strong) NSString *xmlURL;
 

@@ -182,6 +182,9 @@ typedef enum {
     self.extensiveLabel.text = info.title;
     //详情
     self.extensiveDetailLabel.text = info.intro;
+    
+    //标题
+    self.orgNameLabel.text = [LoginViewController rootViewController].selectOrgInfo.orgName;
 
 }
 
