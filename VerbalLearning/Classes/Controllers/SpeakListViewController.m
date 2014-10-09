@@ -149,6 +149,7 @@
                 
                 SpeakDetailListViewController *detailList = [[SpeakDetailListViewController alloc] init];
                 detailList.course = parser.course;
+                detailList.parser = parser;
                 [self.navigationController pushViewController:detailList animated:YES];
             }];
 

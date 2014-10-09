@@ -10,7 +10,7 @@
 #import "SpeakDetailListTableViewCell.h"
 #import "Lesson.h"
 #import "LoginViewController.h"
-
+#import "ListeningViewController.h"
 @interface SpeakDetailListViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *orgNameLabel;
@@ -62,6 +62,26 @@
     cell.titleLabel.text = [(Lesson *)self.course.lessons[indexPath.row] title];
     cell.iconImageView.image = [UIImage imageNamed:@"Headphones"];
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger nPostion = indexPath.row;
+    ListeningViewController *detailViewController = [[ListeningViewController alloc] initWithNibName:@"ListeningViewController" bundle:nil];
+    // ...
+    // Pass the selected object to the new view controller.
+
+    if (nPostion < ([self.course.lessons count])) {
+        detailViewController.nPositionInCourse = nPostion;
+        detailViewController.courseParser = self.parser;
+        detailViewController.delegate = (id)self;
+  		//[[NSNotificationCenter defaultCenter] postNotificationName: NOTIFICATION_ADDNEWNAVI object: detailViewController];
+        //[detailViewController release];
+        [self.navigationController pushViewController:detailViewController animated:YES];
+    }
+
 }
 
 @end

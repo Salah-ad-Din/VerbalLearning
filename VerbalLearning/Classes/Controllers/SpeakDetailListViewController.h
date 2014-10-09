@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Course.h"
-
+#import "CourseParser.h"
 @interface SpeakDetailListViewController : UIViewController
 
 @property (nonatomic, strong) Course *course;
+@property (nonatomic, strong) CourseParser *parser;
 
 @end
