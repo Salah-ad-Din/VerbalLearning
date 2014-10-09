@@ -155,9 +155,14 @@ static LoginViewController *rootViewController;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    if (_orgInfoMArray != nil) {
+    if (_orgInfoMArray != nil && _orgInfoMArray.count > 0) {
         OrgInfo *info = _orgInfoMArray[indexPath.row];
         cell.textLabel.text = info.orgName;
+        if (indexPath.row == 0) {
+            [_orgSelectButton setTitle:info.orgName forState:UIControlStateNormal];
+            _selectOrgInfo = _orgInfoMArray[indexPath.row];
+            [self orgSelectTableViewAnimation];
+       }
     }
     
     return cell;
