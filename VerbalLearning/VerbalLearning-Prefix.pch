@@ -37,3 +37,4 @@
 #define DATABASE_NAME                       @"VLDatabase.sqlite"
 
 #define RESOURCE_BASE_URL                    @"http://m.isayb.com/rs/"
+#define STRING_VOICE_PKG_DIR    @"VoicePkgData"

@@ -33,5 +33,5 @@
 @property (nonatomic, retain) DownloadDataPkgInfo* info;
 
 - (void)doDownload;
-
+- (NSString*)getpkgPath;
 @end

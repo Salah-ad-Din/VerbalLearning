@@ -81,6 +81,10 @@
     [self createDir];
 }
 
+- (NSString*)getpkgPath {
+    return _pkgPath;
+}
+
 
 - (void)createDir
 {

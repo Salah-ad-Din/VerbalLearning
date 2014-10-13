@@ -18,7 +18,8 @@
 #import "SpeakListViewController.h"
 #import "CourseParser.h"
 #import "SpeakDetailListViewController.h"
-
+#import "StoreDownloadPkg.h"
+#import "CurrentInfo.h"
 typedef enum {
     VIEWTYPE_INTENSIVE = 1,
     VIEWTYPE_EXTENSIVE,
@@ -247,9 +248,26 @@ typedef enum {
 
     actionSheet.headerView = headerView;
     
+
     NSInteger count = 0;
     if (viewType == VIEWTYPE_INTENSIVE) {
         count = [[self.parser.intensiveMArray[order] dataPkgCourseInfoArray] count];
+        StoreDownloadPkg* downloadPkg = [[StoreDownloadPkg alloc] init];
+        downloadPkg.info = self.parser.intensiveMArray[order];
+        downloadPkg.info.libID = [LoginViewController rootViewController].selectOrgInfo.orgID;
+        [downloadPkg doDownload];
+        CurrentInfo* lib = [CurrentInfo sharedCurrentInfo];
+        NSRange r = [[downloadPkg getpkgPath] rangeOfString:STRING_VOICE_PKG_DIR];
+       if (r.location != NSNotFound) {
+            NSString* path = [[downloadPkg getpkgPath] substringFromIndex:(r.location + r.length + 1)];
+            lib.currentPkgDataPath = path;
+            lib.currentPkgDataTitle = downloadPkg.info.title;
+            r = [path rangeOfString:@"/"];
+            if (r.location != NSNotFound) {
+                lib.currentLibID = downloadPkg.info.libID;
+            }
+        }
+
     } else {
         count = [[self.parser.extensiveMArray[order] dataPkgCourseInfoArray] count];
     }
@@ -281,6 +299,7 @@ typedef enum {
                 
                 SpeakDetailListViewController *detailList = [[SpeakDetailListViewController alloc] init];
                 detailList.course = parser.course;
+                detailList.parser = parser;
                 [self.navigationController pushViewController:detailList animated:YES];
             }];
             
