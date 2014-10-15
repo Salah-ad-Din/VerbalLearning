@@ -999,7 +999,8 @@ static Database* _database;
             bExist = YES;
         }
     }
-    return bExist;
+    sqlite3_finalize(statement);
+   return bExist;
 
 }
 - (BOOL)updateDownloadedInfo:(NSString*)title withPath:(NSString*)path;

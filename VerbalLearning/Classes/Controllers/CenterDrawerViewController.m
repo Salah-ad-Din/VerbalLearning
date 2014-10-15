@@ -261,12 +261,8 @@ typedef enum {
        if (r.location != NSNotFound) {
             NSString* path = [[downloadPkg getpkgPath] substringFromIndex:(r.location + r.length + 1)];
             lib.currentPkgDataPath = path;
-            lib.currentPkgDataTitle = downloadPkg.info.title;
-            r = [path rangeOfString:@"/"];
-            if (r.location != NSNotFound) {
-                lib.currentLibID = downloadPkg.info.libID;
-            }
-        }
+            lib.currentLibID = downloadPkg.info.libID;
+         }
 
     } else {
         count = [[self.parser.extensiveMArray[order] dataPkgCourseInfoArray] count];
@@ -300,6 +296,7 @@ typedef enum {
                 SpeakDetailListViewController *detailList = [[SpeakDetailListViewController alloc] init];
                 detailList.course = parser.course;
                 detailList.parser = parser;
+                detailList.pkgTitle = title;
                 [self.navigationController pushViewController:detailList animated:YES];
             }];
             

@@ -120,6 +120,7 @@
     }
     // insert info to database
     Database* db = [Database sharedDatabase];
+    NSRange r = [_pkgPath rangeOfString:STRING_VOICE_PKG_DIR];
     [db insertVoicePkgInfo:self.info];
     [[NSNotificationCenter defaultCenter] postNotificationName: NOTIFICATION_ADD_VOICE_PKG object: [NSNumber numberWithBool:YES]];
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DOWNLOADED_VOICE_PKGXML object:self.info.title];

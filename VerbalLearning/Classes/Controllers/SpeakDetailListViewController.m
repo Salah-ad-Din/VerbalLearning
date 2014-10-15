@@ -11,6 +11,7 @@
 #import "Lesson.h"
 #import "LoginViewController.h"
 #import "ListeningViewController.h"
+#import "CurrentInfo.h"
 @interface SpeakDetailListViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *orgNameLabel;
@@ -74,6 +75,8 @@
     // Pass the selected object to the new view controller.
 
     if (nPostion < ([self.course.lessons count])) {
+        CurrentInfo* lib = [CurrentInfo sharedCurrentInfo];
+        lib.currentPkgDataTitle = self.pkgTitle;
         detailViewController.nPositionInCourse = nPostion;
         detailViewController.courseParser = self.parser;
         detailViewController.delegate = (id)self;

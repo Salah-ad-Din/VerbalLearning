@@ -13,5 +13,6 @@
 
 @property (nonatomic, strong) Course *course;
 @property (nonatomic, strong) CourseParser *parser;
+@property (nonatomic, retain) NSString* pkgTitle;
 
 @end
