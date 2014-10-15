@@ -11,7 +11,7 @@
 #define STRING_KEY_LESSONPATH @"lessonPath"
 #define STRING_KEY_TRYSERVERLIST @"tryServerListIndex"
 #define STRING_KEY_FILETYPE @"fileType"
-#define STRING_KEY_FILETYPE_XIN @"xin"
+#define STRING_KEY_FILETYPE_XIN @"xat"
 #define STRING_KEY_FILETYPE_ISB @"isb"
 #define STRING_KEY_FILETYPE_LES @"les"
 
@@ -40,6 +40,7 @@
     if (info == nil) {
         return NO;
     }
+    info.url = RESOURCE_BASE_URL;
     [self downloadXINByURL:info.url withTryIndex:-1];
     [self downloadISBByURL:info.url withTryIndex:-1];
     [self downloadLESByURL:info.url withTryIndex:-1];

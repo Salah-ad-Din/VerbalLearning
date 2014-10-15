@@ -291,6 +291,7 @@ typedef enum {
                 //解析xml,推出下一个
                 CourseParser *parser = [[CourseParser alloc] init];
                 parser.resourcePath = saveDocument;
+                parser.resourceSaveDataPath = [[[VLSingleton sharedInstance] getCachePath] stringByAppendingFormat:@"/%@/",STRING_VOICE_PKG_DIR];
                 [parser loadCourses:xmlFileName];
                 
                 SpeakDetailListViewController *detailList = [[SpeakDetailListViewController alloc] init];

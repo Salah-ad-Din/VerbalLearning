@@ -290,7 +290,7 @@ static Database* _database;
 
 - (BOOL)addDefaultLib {
     LibaryInfo* info = [[LibaryInfo alloc] init];
-    info.url = STRING_STORE_URL_ADDRESS;
+    info.url = RESOURCE_BASE_URL;
     info.title = STRING_DEFAULT_LIB_NAME;
     [self insertLibaryInfo:info];
     [info release];
@@ -299,7 +299,7 @@ static Database* _database;
 
 - (BOOL)addHiddenLibForFreeSrc{
     LibaryInfo* info = [[LibaryInfo alloc] init];
-    info.url = STRING_HIDDEN_LIB_NAME;
+    info.url = RESOURCE_BASE_URL;
     info.title = STRING_HIDDEN_LIB_NAME;
     [self insertLibaryInfo:info];
     [info release];

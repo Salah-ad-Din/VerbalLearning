@@ -18,8 +18,8 @@
 #import "isaybiosscroe.h"
 #import "ISaybEncrypt2.h"
 #import "SmartEncrypt.h"
-//#import "Database.h"
-//#import "CurrentInfo.h"
+#import "Database.h"
+#import "CurrentInfo.h"
 //#import "BorrowInfo.h"
 //#import "Globle.h"
 @implementation CourseParser
@@ -219,7 +219,7 @@ static bool bLoadModel = NO;
 	}
 }
 
-/*
+
 - (void)loadLesson:(NSInteger)lessonindex
 {
     Lesson* lesson = [course.lessons objectAtIndex:lessonindex];
@@ -230,17 +230,18 @@ static bool bLoadModel = NO;
     
 	if (lessonindex < [course.lessons count]) {
 		// load file
-        NSString* fullFilename = [resourcePath stringByAppendingPathComponent:lesson.path];
+        CurrentInfo* info = [CurrentInfo sharedCurrentInfo];
+        NSString* fullFilename = [self.resourceSaveDataPath stringByAppendingFormat:@"%@/%@/%@",info.currentPkgDataPath, info.currentPkgDataTitle, lesson.path];
         
         fullFilename = [fullFilename stringByAppendingPathComponent:lesson.lessonid];
         NSLog(@"%@", fullFilename);
         
         // 解压xml文件
         // 判断目标xml文件是否存在
-//        [self getMirrorRessourcePath];
-//        NSString* mirrorFullFilename = [wavePath stringByAppendingPathComponent:lesson.path];
-//        mirrorFullFilename = [mirrorFullFilename stringByAppendingPathComponent:lesson.file];
-//        NSFileManager* fileMgr = [NSFileManager defaultManager];
+ //       [self getMirrorRessourcePath];
+ //       NSString* mirrorFullFilename = [wavePath stringByAppendingPathComponent:lesson.path];
+ //       mirrorFullFilename = [mirrorFullFilename stringByAppendingPathComponent:lesson.file];
+ //       NSFileManager* fileMgr = [NSFileManager defaultManager];
 //        if (![fileMgr fileExistsAtPath:mirrorFullFilename]) {
 //            // 创建目录
 //            NSRange range = [mirrorFullFilename rangeOfString:@"/" options:NSBackwardsSearch];
@@ -257,11 +258,10 @@ static bool bLoadModel = NO;
         [isaybios ISAYB_SetLesson:[les cStringUsingEncoding:NSUTF8StringEncoding]];
         
         // 读取加密xml
-        NSString* xatFile = [fullFilename stringByAppendingPathExtension:@"xin"];
+        NSString* xatFile = [fullFilename stringByAppendingPathExtension:@"xat"];
         const char* infile = [xatFile cStringUsingEncoding:NSUTF8StringEncoding];
         unsigned char* filedata = nil;
         Database* base = [Database sharedDatabase];
-        CurrentInfo* info = [CurrentInfo sharedCurrentInfo];
         LibaryInfo* libinfo = [base getLibaryInfoByID:info.currentLibID];
         if (!(libinfo.lisence != nil  && libinfo.lisenceLen != 0) || libinfo == nil) {
             return;
@@ -313,7 +313,7 @@ static bool bLoadModel = NO;
 		[tbxml release];
 	}
 }
- */
+ 
 
 - (void)loadSentence:(TBXMLElement *)element to:(NSMutableArray *)sentences
 {

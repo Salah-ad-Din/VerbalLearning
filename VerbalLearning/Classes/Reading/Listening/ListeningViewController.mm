@@ -52,7 +52,7 @@
 #define STRING_KEY_LESSONPATH @"lessonPath"
 #define STRING_KEY_TRYSERVERLIST @"tryServerListIndex"
 #define STRING_KEY_FILETYPE @"fileType"
-#define STRING_KEY_FILETYPE_XIN @"xin"
+#define STRING_KEY_FILETYPE_XIN @"xat"
 #define STRING_KEY_FILETYPE_ISB @"isb"
 #define STRING_KEY_FILETYPE_LES @"les"
 #define HEIGHT_OF_WAVECELL      122

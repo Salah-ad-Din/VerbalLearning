@@ -25,6 +25,7 @@
 }
 
 @property (nonatomic, retain) NSString* resourcePath;
+@property (nonatomic, retain) NSString* resourceSaveDataPath;
 @property (nonatomic, retain) TBXML* tbxml;
 @property (nonatomic, retain) Course* course;
 
