@@ -62,7 +62,7 @@ static bool bLoadModel = NO;
     
 }
 
-/*
+
 - (void)getMirrorRessourcePath
 {
     if (wavePath == nil) {
@@ -76,7 +76,7 @@ static bool bLoadModel = NO;
         }
     }
 }
- */
+
 
 
 
@@ -251,10 +251,10 @@ static bool bLoadModel = NO;
         }*/
         
         //long nLen = LoadDecodeBuffer(infile, &filedata, (const unsigned char*)[libinfo.lisence cStringUsingEncoding:NSASCIIStringEncoding], libinfo.lisenceLen);
-        long nLen = LoadDecodeBuffer(infile, &filedata, (const unsigned char*)[@"9eb27775-196a-4b6b-ad13-5901b00c62ca" cStringUsingEncoding:NSASCIIStringEncoding], 36);
+        long nLen = LoadDecodeBuffer(infile, &filedata, (const unsigned char*)[@"9eb27775-196a-4b6b-ad13-5901b00c62ca" cStringUsingEncoding:NSASCIIStringEncoding], (long)36);
         
-        //tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithBytes:filedata length:nLen]] retain];
-        TBXML *tbxml = [[TBXML tbxmlWithXMLFile:xatFile] retain];
+        tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithBytes:filedata length:nLen]] retain];
+        //tbxml = [[TBXML tbxmlWithXMLFile:xatFile] retain];
         //FreeBuffer(&filedata);
 		
 		TBXMLElement* root = tbxml.rootXMLElement;
