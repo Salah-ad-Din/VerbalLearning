@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DF128F619EFB6900085F0D1 /* libisayioDecode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF128EB19EFB6900085F0D1 /* libisayioDecode.a */; };
+		0DF128F719EFB6900085F0D1 /* AQPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0DF128EE19EFB6900085F0D1 /* AQPlayer.mm */; };
+		0DF128F819EFB6900085F0D1 /* AQRecorder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0DF128F019EFB6900085F0D1 /* AQRecorder.mm */; };
+		0DF128F919EFB6900085F0D1 /* libisayscore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF128F319EFB6900085F0D1 /* libisayscore.a */; };
+		0DF128FA19EFB6900085F0D1 /* WaveFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF128F419EFB6900085F0D1 /* WaveFile.cpp */; };
+		0DF128FC19EFBDA70085F0D1 /* model.dat in Resources */ = {isa = PBXBuildFile; fileRef = 0DF128FB19EFBDA70085F0D1 /* model.dat */; };
 		91310684198DC9D8006B7364 /* SpeakListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91310682198DC9D8006B7364 /* SpeakListViewController.m */; };
 		91310685198DC9D8006B7364 /* SpeakListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91310683198DC9D8006B7364 /* SpeakListViewController.xib */; };
 		915AC41C19A7999800B6DE8C /* VLSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 915AC41B19A7999800B6DE8C /* VLSingleton.m */; };
@@ -43,11 +49,6 @@
 		917BF93F1997A27800A359EB /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 917BF93E1997A27800A359EB /* libsqlite3.0.dylib */; };
 		917BF9451997A99000A359EB /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 917BF9421997A99000A359EB /* NSDataAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		917BF9461997A99000A359EB /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 917BF9441997A99000A359EB /* TBXML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		917BF9541997AD9500A359EB /* libisayioDecode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 917BF9491997AD9500A359EB /* libisayioDecode.a */; };
-		917BF9551997AD9500A359EB /* AQPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 917BF94C1997AD9500A359EB /* AQPlayer.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		917BF9561997AD9500A359EB /* AQRecorder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 917BF94E1997AD9500A359EB /* AQRecorder.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		917BF9571997AD9500A359EB /* libisayscore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 917BF9511997AD9500A359EB /* libisayscore.a */; };
-		917BF9581997AD9500A359EB /* WaveFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 917BF9521997AD9500A359EB /* WaveFile.cpp */; };
 		917BF9611997B50A00A359EB /* CADebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 917BF95A1997B50A00A359EB /* CADebugMacros.cpp */; };
 		917BF9621997B50A00A359EB /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 917BF95D1997B50A00A359EB /* CAStreamBasicDescription.cpp */; };
 		917BF9631997B50A00A359EB /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 917BF95F1997B50A00A359EB /* CAXException.cpp */; };
@@ -98,7 +99,6 @@
 		91CE6D1219BDB2CD0022DD05 /* ListeningViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 91CE6CF119BDB2CD0022DD05 /* ListeningViewController.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		91CE6D1319BDB2CD0022DD05 /* ListeningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91CE6CF219BDB2CD0022DD05 /* ListeningViewController.xib */; };
 		91CE6D1419BDB2CD0022DD05 /* RecordingObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 91CE6CF419BDB2CD0022DD05 /* RecordingObject.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		91CE6D1519BDB2CD0022DD05 /* libisayscore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CE6CF719BDB2CD0022DD05 /* libisayscore.a */; };
 		91CE6D1619BDB2CD0022DD05 /* SettingAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CE6CFA19BDB2CD0022DD05 /* SettingAboutViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		91CE6D1719BDB2CD0022DD05 /* SettingAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91CE6CFB19BDB2CD0022DD05 /* SettingAboutViewController.xib */; };
 		91CE6D1819BDB2CD0022DD05 /* SettingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CE6CFD19BDB2CD0022DD05 /* SettingData.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -184,6 +184,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DF128EA19EFB6900085F0D1 /* isaybioDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = isaybioDecode.h; sourceTree = "<group>"; };
+		0DF128EB19EFB6900085F0D1 /* libisayioDecode.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libisayioDecode.a; sourceTree = "<group>"; };
+		0DF128ED19EFB6900085F0D1 /* AQPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQPlayer.h; sourceTree = "<group>"; };
+		0DF128EE19EFB6900085F0D1 /* AQPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AQPlayer.mm; sourceTree = "<group>"; };
+		0DF128EF19EFB6900085F0D1 /* AQRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQRecorder.h; sourceTree = "<group>"; };
+		0DF128F019EFB6900085F0D1 /* AQRecorder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AQRecorder.mm; sourceTree = "<group>"; };
+		0DF128F219EFB6900085F0D1 /* isaybiosscroe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = isaybiosscroe.h; sourceTree = "<group>"; };
+		0DF128F319EFB6900085F0D1 /* libisayscore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libisayscore.a; sourceTree = "<group>"; };
+		0DF128F419EFB6900085F0D1 /* WaveFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WaveFile.cpp; sourceTree = "<group>"; };
+		0DF128F519EFB6900085F0D1 /* WaveFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveFile.h; sourceTree = "<group>"; };
+		0DF128FB19EFBDA70085F0D1 /* model.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = model.dat; sourceTree = "<group>"; };
 		91310681198DC9D8006B7364 /* SpeakListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakListViewController.h; sourceTree = "<group>"; };
 		91310682198DC9D8006B7364 /* SpeakListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakListViewController.m; sourceTree = "<group>"; };
 		91310683198DC9D8006B7364 /* SpeakListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SpeakListViewController.xib; path = ../Controllers/SpeakListViewController.xib; sourceTree = "<group>"; };
@@ -256,16 +267,6 @@
 		917BF9421997A99000A359EB /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 		917BF9431997A99000A359EB /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
 		917BF9441997A99000A359EB /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
-		917BF9481997AD9500A359EB /* isaybioDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = isaybioDecode.h; sourceTree = "<group>"; };
-		917BF9491997AD9500A359EB /* libisayioDecode.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libisayioDecode.a; sourceTree = "<group>"; };
-		917BF94B1997AD9500A359EB /* AQPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQPlayer.h; sourceTree = "<group>"; };
-		917BF94C1997AD9500A359EB /* AQPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AQPlayer.mm; sourceTree = "<group>"; };
-		917BF94D1997AD9500A359EB /* AQRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQRecorder.h; sourceTree = "<group>"; };
-		917BF94E1997AD9500A359EB /* AQRecorder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AQRecorder.mm; sourceTree = "<group>"; };
-		917BF9501997AD9500A359EB /* isaybiosscroe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = isaybiosscroe.h; sourceTree = "<group>"; };
-		917BF9511997AD9500A359EB /* libisayscore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libisayscore.a; sourceTree = "<group>"; };
-		917BF9521997AD9500A359EB /* WaveFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WaveFile.cpp; sourceTree = "<group>"; };
-		917BF9531997AD9500A359EB /* WaveFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveFile.h; sourceTree = "<group>"; };
 		917BF95A1997B50A00A359EB /* CADebugMacros.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugMacros.cpp; sourceTree = "<group>"; };
 		917BF95B1997B50A00A359EB /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
 		917BF95C1997B50A00A359EB /* CAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMath.h; sourceTree = "<group>"; };
@@ -352,8 +353,6 @@
 		91CE6CF219BDB2CD0022DD05 /* ListeningViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListeningViewController.xib; sourceTree = "<group>"; };
 		91CE6CF319BDB2CD0022DD05 /* RecordingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordingObject.h; sourceTree = "<group>"; };
 		91CE6CF419BDB2CD0022DD05 /* RecordingObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RecordingObject.mm; sourceTree = "<group>"; };
-		91CE6CF619BDB2CD0022DD05 /* isaybiosscroe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = isaybiosscroe.h; sourceTree = "<group>"; };
-		91CE6CF719BDB2CD0022DD05 /* libisayscore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libisayscore.a; sourceTree = "<group>"; };
 		91CE6CF919BDB2CD0022DD05 /* SettingAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingAboutViewController.h; sourceTree = "<group>"; };
 		91CE6CFA19BDB2CD0022DD05 /* SettingAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingAboutViewController.m; sourceTree = "<group>"; };
 		91CE6CFB19BDB2CD0022DD05 /* SettingAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingAboutViewController.xib; sourceTree = "<group>"; };
@@ -491,18 +490,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91CE6D1519BDB2CD0022DD05 /* libisayscore.a in Frameworks */,
 				918191A219B383300043DE12 /* libIsaybEncrypt.a in Frameworks */,
 				917BF96D1997C44400A359EB /* QuartzCore.framework in Frameworks */,
+				0DF128F619EFB6900085F0D1 /* libisayioDecode.a in Frameworks */,
 				917BF96B1997C43600A359EB /* CoreText.framework in Frameworks */,
 				917BF9691997C42D00A359EB /* SystemConfiguration.framework in Frameworks */,
 				917BF9671997C41D00A359EB /* AVFoundation.framework in Frameworks */,
 				917BF9651997C41300A359EB /* AudioToolbox.framework in Frameworks */,
-				917BF9571997AD9500A359EB /* libisayscore.a in Frameworks */,
-				917BF9541997AD9500A359EB /* libisayioDecode.a in Frameworks */,
 				917BF93F1997A27800A359EB /* libsqlite3.0.dylib in Frameworks */,
 				91CD5D671975844C001E2814 /* CoreGraphics.framework in Frameworks */,
 				91CD5D691975844C001E2814 /* UIKit.framework in Frameworks */,
+				0DF128F919EFB6900085F0D1 /* libisayscore.a in Frameworks */,
 				91CD5D651975844C001E2814 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,6 +518,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DF128E919EFB6900085F0D1 /* WaveDecode */ = {
+			isa = PBXGroup;
+			children = (
+				0DF128FB19EFBDA70085F0D1 /* model.dat */,
+				0DF128EA19EFB6900085F0D1 /* isaybioDecode.h */,
+				0DF128EB19EFB6900085F0D1 /* libisayioDecode.a */,
+				0DF128EC19EFB6900085F0D1 /* PlayRecord */,
+				0DF128F119EFB6900085F0D1 /* VoiceScore */,
+				0DF128F419EFB6900085F0D1 /* WaveFile.cpp */,
+				0DF128F519EFB6900085F0D1 /* WaveFile.h */,
+			);
+			path = WaveDecode;
+			sourceTree = "<group>";
+		};
+		0DF128EC19EFB6900085F0D1 /* PlayRecord */ = {
+			isa = PBXGroup;
+			children = (
+				0DF128ED19EFB6900085F0D1 /* AQPlayer.h */,
+				0DF128EE19EFB6900085F0D1 /* AQPlayer.mm */,
+				0DF128EF19EFB6900085F0D1 /* AQRecorder.h */,
+				0DF128F019EFB6900085F0D1 /* AQRecorder.mm */,
+			);
+			path = PlayRecord;
+			sourceTree = "<group>";
+		};
+		0DF128F119EFB6900085F0D1 /* VoiceScore */ = {
+			isa = PBXGroup;
+			children = (
+				0DF128F219EFB6900085F0D1 /* isaybiosscroe.h */,
+				0DF128F319EFB6900085F0D1 /* libisayscore.a */,
+			);
+			path = VoiceScore;
+			sourceTree = "<group>";
+		};
 		91310680198DC9AB006B7364 /* Speak */ = {
 			isa = PBXGroup;
 			children = (
@@ -680,39 +712,6 @@
 				917BF9441997A99000A359EB /* TBXML.m */,
 			);
 			path = TBXML;
-			sourceTree = "<group>";
-		};
-		917BF9471997AD9500A359EB /* WaveDecode */ = {
-			isa = PBXGroup;
-			children = (
-				917BF9481997AD9500A359EB /* isaybioDecode.h */,
-				917BF9491997AD9500A359EB /* libisayioDecode.a */,
-				917BF94A1997AD9500A359EB /* PlayRecord */,
-				917BF94F1997AD9500A359EB /* VoiceScore */,
-				917BF9521997AD9500A359EB /* WaveFile.cpp */,
-				917BF9531997AD9500A359EB /* WaveFile.h */,
-			);
-			path = WaveDecode;
-			sourceTree = "<group>";
-		};
-		917BF94A1997AD9500A359EB /* PlayRecord */ = {
-			isa = PBXGroup;
-			children = (
-				917BF94B1997AD9500A359EB /* AQPlayer.h */,
-				917BF94C1997AD9500A359EB /* AQPlayer.mm */,
-				917BF94D1997AD9500A359EB /* AQRecorder.h */,
-				917BF94E1997AD9500A359EB /* AQRecorder.mm */,
-			);
-			path = PlayRecord;
-			sourceTree = "<group>";
-		};
-		917BF94F1997AD9500A359EB /* VoiceScore */ = {
-			isa = PBXGroup;
-			children = (
-				917BF9501997AD9500A359EB /* isaybiosscroe.h */,
-				917BF9511997AD9500A359EB /* libisayscore.a */,
-			);
-			path = VoiceScore;
 			sourceTree = "<group>";
 		};
 		917BF9591997B50A00A359EB /* iPublicUtility */ = {
@@ -901,10 +900,10 @@
 				91CD5D9F197586B3001E2814 /* Views */,
 				91CD5DA019758702001E2814 /* Xibs */,
 				91608951197BAEDA0036C807 /* Libraries */,
+				0DF128E919EFB6900085F0D1 /* WaveDecode */,
 				9181918F19B383300043DE12 /* XMLDecrypt */,
 				9160898A197BB81F0036C807 /* XMLParser */,
 				917BF937199766A300A359EB /* Database */,
-				917BF9471997AD9500A359EB /* WaveDecode */,
 				917BF9591997B50A00A359EB /* iPublicUtility */,
 				91CE6CC919BDAEF60022DD05 /* Reading */,
 			);
@@ -1012,7 +1011,6 @@
 				91CE6CF219BDB2CD0022DD05 /* ListeningViewController.xib */,
 				91CE6CF319BDB2CD0022DD05 /* RecordingObject.h */,
 				91CE6CF419BDB2CD0022DD05 /* RecordingObject.mm */,
-				91CE6CF519BDB2CD0022DD05 /* VoiceScore */,
 			);
 			path = Listening;
 			sourceTree = "<group>";
@@ -1029,15 +1027,6 @@
 				91CE6CEF19BDB2CD0022DD05 /* CollapseClickCell.xib */,
 			);
 			path = Collapse;
-			sourceTree = "<group>";
-		};
-		91CE6CF519BDB2CD0022DD05 /* VoiceScore */ = {
-			isa = PBXGroup;
-			children = (
-				91CE6CF619BDB2CD0022DD05 /* isaybiosscroe.h */,
-				91CE6CF719BDB2CD0022DD05 /* libisayscore.a */,
-			);
-			path = VoiceScore;
 			sourceTree = "<group>";
 		};
 		91CE6CF819BDB2CD0022DD05 /* Setting */ = {
@@ -1383,6 +1372,7 @@
 				91CE6D1119BDB2CD0022DD05 /* CollapseClickCell.xib in Resources */,
 				9181917319B179F60043DE12 /* SpeakDetailListViewController.xib in Resources */,
 				91CD5D6F1975844C001E2814 /* InfoPlist.strings in Resources */,
+				0DF128FC19EFBDA70085F0D1 /* model.dat in Resources */,
 				91CE6D9719BDBBF00022DD05 /* ListeningCell.xib in Resources */,
 				91CD5D771975844C001E2814 /* Images.xcassets in Resources */,
 				91CE6D2019BDB2CD0022DD05 /* SettingTrainingModeCell.xib in Resources */,
@@ -1407,6 +1397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DF128F719EFB6900085F0D1 /* AQPlayer.mm in Sources */,
 				9181918D19B37E170043DE12 /* Word.m in Sources */,
 				91CE6D5319BDB7DC0022DD05 /* CurrentInfo.mm in Sources */,
 				918191A519B383300043DE12 /* md5_dgst.c in Sources */,
@@ -1423,7 +1414,6 @@
 				91CE6D9919BDBBF00022DD05 /* RecordingWaveCell.mm in Sources */,
 				91CE6D6C19BDB84A0022DD05 /* GTMReadMonitorInputStream.m in Sources */,
 				91608985197BAEDA0036C807 /* UIImageView+AFNetworking.m in Sources */,
-				917BF9551997AD9500A359EB /* AQPlayer.mm in Sources */,
 				91CE6D7A19BDBB850022DD05 /* DMCustomModalViewController.m in Sources */,
 				917BF9451997A99000A359EB /* NSDataAdditions.m in Sources */,
 				91CD5D751975844C001E2814 /* AppDelegate.m in Sources */,
@@ -1483,6 +1473,7 @@
 				91310684198DC9D8006B7364 /* SpeakListViewController.m in Sources */,
 				91CE6D1219BDB2CD0022DD05 /* ListeningViewController.mm in Sources */,
 				91CE6D3019BDB6010022DD05 /* CERoundProgressView.m in Sources */,
+				0DF128FA19EFB6900085F0D1 /* WaveFile.cpp in Sources */,
 				91E7F2A719839049006C6CF3 /* MMDrawerBarButtonItem.m in Sources */,
 				91608982197BAEDA0036C807 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				9160897C197BAEDA0036C807 /* AFSecurityPolicy.m in Sources */,
@@ -1496,6 +1487,7 @@
 				91CE6D0F19BDB2CD0022DD05 /* CollapseClickArrow.m in Sources */,
 				91CE6D9819BDBBF00022DD05 /* RatingView.m in Sources */,
 				91E1B9EA19AB835B00DF1A2C /* AHKActionSheet.m in Sources */,
+				0DF128F819EFB6900085F0D1 /* AQRecorder.mm in Sources */,
 				91D0F0991983AD9100547645 /* RootNavigationController.m in Sources */,
 				91CE6DB119BDBE620022DD05 /* BuyButton.m in Sources */,
 				91CE6D0D19BDB2CD0022DD05 /* ButtonPlayObject.m in Sources */,
@@ -1506,7 +1498,6 @@
 				91608994197BBA7F0036C807 /* LoginXMLParser.m in Sources */,
 				915AC42219A8BB3300B6DE8C /* DailyWordsParser.m in Sources */,
 				91608988197BAEDA0036C807 /* UIWebView+AFNetworking.m in Sources */,
-				917BF9561997AD9500A359EB /* AQRecorder.mm in Sources */,
 				91CE6D1019BDB2CD0022DD05 /* CollapseClickCell.m in Sources */,
 				91CE6DAA19BDBDD70022DD05 /* AttributedLabel.m in Sources */,
 				917BF93A199766BE00A359EB /* DataSource.m in Sources */,
@@ -1522,7 +1513,6 @@
 				9160897E197BAEDA0036C807 /* AFURLRequestSerialization.m in Sources */,
 				91608981197BAEDA0036C807 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				91CE6D7619BDB94D0022DD05 /* StoreDownloadPkg.m in Sources */,
-				917BF9581997AD9500A359EB /* WaveFile.cpp in Sources */,
 				9160898D197BB81F0036C807 /* XMLDictionary.m in Sources */,
 				91CE6D2F19BDB6010022DD05 /* CERoundProgressLayer.m in Sources */,
 				91CE6D9619BDBBF00022DD05 /* ListeningCell.m in Sources */,
@@ -1605,6 +1595,13 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VerbalLearning/Classes/WaveDecode",
+					"$(PROJECT_DIR)/VerbalLearning/Classes/WaveDecode/VoiceScore",
+					"$(PROJECT_DIR)/VerbalLearning/Classes/XMLParser",
+					"$(PROJECT_DIR)/VerbalLearning/Classes/XMLDecrypt",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lz";
 				SDKROOT = iphoneos;
@@ -1643,6 +1640,13 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VerbalLearning/Classes/WaveDecode",
+					"$(PROJECT_DIR)/VerbalLearning/Classes/WaveDecode/VoiceScore",
+					"$(PROJECT_DIR)/VerbalLearning/Classes/XMLParser",
+					"$(PROJECT_DIR)/VerbalLearning/Classes/XMLDecrypt",
+				);
 				OTHER_LDFLAGS = "-lz";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1663,9 +1667,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/VerbalLearning/Classes/WaveDecode",
 					"$(PROJECT_DIR)/VerbalLearning/Classes/WaveDecode/VoiceScore",
-					"$(PROJECT_DIR)/VerbalLearning/Classes/XMLParser/XMLDecrypt",
-					"$(PROJECT_DIR)/VerbalLearning/Classes/Reading/VoiceScore",
-					"$(PROJECT_DIR)/VerbalLearning/Classes/Reading/Listening/VoiceScore",
+					"$(PROJECT_DIR)/VerbalLearning/Classes/XMLParser",
+					"$(PROJECT_DIR)/VerbalLearning/Classes/XMLDecrypt",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1685,9 +1688,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/VerbalLearning/Classes/WaveDecode",
 					"$(PROJECT_DIR)/VerbalLearning/Classes/WaveDecode/VoiceScore",
-					"$(PROJECT_DIR)/VerbalLearning/Classes/XMLParser/XMLDecrypt",
-					"$(PROJECT_DIR)/VerbalLearning/Classes/Reading/VoiceScore",
-					"$(PROJECT_DIR)/VerbalLearning/Classes/Reading/Listening/VoiceScore",
+					"$(PROJECT_DIR)/VerbalLearning/Classes/XMLParser",
+					"$(PROJECT_DIR)/VerbalLearning/Classes/XMLDecrypt",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

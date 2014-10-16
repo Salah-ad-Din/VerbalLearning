@@ -210,7 +210,7 @@ BOOL AQRecorder::StartRecord(CFStringRef recordFile)
 	
 	try {
         
-         NSString* recordFileName = (NSString*)recordFile;
+         NSString* recordFileName = (__bridge NSString*)recordFile;
          NSRange r = [recordFileName rangeOfString:@"/" options:NSBackwardsSearch];
          if (r.location != NSNotFound) {
              NSString* fm = [recordFileName substringFromIndex:(r.location+1)];

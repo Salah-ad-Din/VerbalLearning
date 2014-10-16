@@ -20,8 +20,8 @@
 #import "SmartEncrypt.h"
 #import "Database.h"
 #import "CurrentInfo.h"
-//#import "BorrowInfo.h"
-//#import "Globle.h"
+#import "BorrowInfo.h"
+#import "Globle.h"
 @implementation CourseParser
 
 @synthesize resourcePath, tbxml, course;
@@ -55,7 +55,7 @@ static bool bLoadModel = NO;
 {
     if (!bLoadModel) {
          NSString* strModel = [NSString stringWithFormat:@"%@/model.dat", [[NSBundle mainBundle] resourcePath]];
-        [isaybios ISAYB_SetModel:[strModel cStringUsingEncoding:NSUTF8StringEncoding]];
+        bool ecode = [isaybios ISAYB_SetModel:[strModel cStringUsingEncoding:NSUTF8StringEncoding]];
         
         bLoadModel = YES;
     }
@@ -234,28 +234,11 @@ static bool bLoadModel = NO;
         NSString* fullFilename = [self.resourceSaveDataPath stringByAppendingFormat:@"%@/%@/%@",info.currentPkgDataPath, info.currentPkgDataTitle, lesson.path];
         
         fullFilename = [fullFilename stringByAppendingPathComponent:lesson.lessonid];
-        NSLog(@"%@", fullFilename);
-        
-        // 解压xml文件
-        // 判断目标xml文件是否存在
- //       [self getMirrorRessourcePath];
- //       NSString* mirrorFullFilename = [wavePath stringByAppendingPathComponent:lesson.path];
- //       mirrorFullFilename = [mirrorFullFilename stringByAppendingPathComponent:lesson.file];
- //       NSFileManager* fileMgr = [NSFileManager defaultManager];
-//        if (![fileMgr fileExistsAtPath:mirrorFullFilename]) {
-//            // 创建目录
-//            NSRange range = [mirrorFullFilename rangeOfString:@"/" options:NSBackwardsSearch];
-//            NSString* filePath = [mirrorFullFilename substringToIndex:range.location];
-//            [fileMgr createDirectoryAtPath:filePath withIntermediateDirectories:YES attributes:nil error:nil];
-//             // 解密
-//            NSString* xatFile = [fullFilename substringToIndex:[fullFilename length] - 4];
-//            xatFile = [xatFile stringByAppendingPathExtension:@"xat"];
-//            [IsaybEncrypt DecodeFile:xatFile to:mirrorFullFilename];
-//        }
         
         // Load Lesson
         NSString *les = [NSString stringWithFormat:@"%@.les", fullFilename];
-        [isaybios ISAYB_SetLesson:[les cStringUsingEncoding:NSUTF8StringEncoding]];
+        NSLog(@"%@", les);
+       [isaybios ISAYB_SetLesson:[les cStringUsingEncoding:NSUTF8StringEncoding]];
         
         // 读取加密xml
         NSString* xatFile = [fullFilename stringByAppendingPathExtension:@"xat"];
@@ -263,14 +246,16 @@ static bool bLoadModel = NO;
         unsigned char* filedata = nil;
         Database* base = [Database sharedDatabase];
         LibaryInfo* libinfo = [base getLibaryInfoByID:info.currentLibID];
-        if (!(libinfo.lisence != nil  && libinfo.lisenceLen != 0) || libinfo == nil) {
+        /*if (!(libinfo.lisence != nil  && libinfo.lisenceLen != 0) || libinfo == nil) {
             return;
-        }
+        }*/
         
-        long nLen = LoadDecodeBuffer(infile, &filedata, (const unsigned char*)[libinfo.lisence cStringUsingEncoding:NSASCIIStringEncoding], libinfo.lisenceLen);
-                                                         
-        tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithBytes:filedata length:nLen]] retain];
-        FreeBuffer(&filedata);
+        //long nLen = LoadDecodeBuffer(infile, &filedata, (const unsigned char*)[libinfo.lisence cStringUsingEncoding:NSASCIIStringEncoding], libinfo.lisenceLen);
+        long nLen = LoadDecodeBuffer(infile, &filedata, (const unsigned char*)[@"9eb27775-196a-4b6b-ad13-5901b00c62ca" cStringUsingEncoding:NSASCIIStringEncoding], 36);
+        
+        //tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithBytes:filedata length:nLen]] retain];
+        TBXML *tbxml = [[TBXML tbxmlWithXMLFile:xatFile] retain];
+        //FreeBuffer(&filedata);
 		
 		TBXMLElement* root = tbxml.rootXMLElement;
 		if (root) {
