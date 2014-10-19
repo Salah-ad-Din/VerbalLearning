@@ -66,10 +66,14 @@ static bool bLoadModel = NO;
 - (void)getMirrorRessourcePath
 {
     if (wavePath == nil) {
-        NSRange r = [resourcePath rangeOfString:STRING_VOICE_PKG_DIR];
-        [Globle addSkipBackupAttributeToFile:resourcePath];
+        
+        CurrentInfo* info = [CurrentInfo sharedCurrentInfo];
+        NSString* fullFilename = [self.resourceSaveDataPath stringByAppendingFormat:@"%@/%@",info.currentPkgDataPath, info.currentPkgDataTitle];
+        
+        NSRange r = [fullFilename rangeOfString:STRING_VOICE_PKG_DIR];
+        [Globle addSkipBackupAttributeToFile:fullFilename];
         if (r.length != 0) {
-            NSString* dataPath = [resourcePath substringFromIndex:(r.location + r.length)];
+            NSString* dataPath = [fullFilename substringFromIndex:(r.location + r.length)];
             NSString *docsDir = [Globle getMirrorPath];
             wavePath = [[NSString alloc] initWithFormat:@"%@%@", docsDir, dataPath];
 
@@ -250,8 +254,7 @@ static bool bLoadModel = NO;
             return;
         }*/
         
-        //long nLen = LoadDecodeBuffer(infile, &filedata, (const unsigned char*)[libinfo.lisence cStringUsingEncoding:NSASCIIStringEncoding], libinfo.lisenceLen);
-        long nLen = LoadDecodeBuffer(infile, &filedata, (const unsigned char*)[@"9eb27775-196a-4b6b-ad13-5901b00c62ca" cStringUsingEncoding:NSASCIIStringEncoding], (long)36);
+        long nLen = LoadDecodeBuffer(infile, &filedata, (const unsigned char*)[libinfo.lisence cStringUsingEncoding:NSASCIIStringEncoding], libinfo.lisenceLen);
         
         tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithBytes:filedata length:nLen]] retain];
         //tbxml = [[TBXML tbxmlWithXMLFile:xatFile] retain];
@@ -287,7 +290,10 @@ static bool bLoadModel = NO;
                         
 						lesson.wavfile = [wavePath stringByAppendingPathComponent:[fileName stringByAppendingPathExtension:@"wav"]];
                         //NSLog(@"%@", lesson.wavfile);
-                        lesson.isbfile = [resourcePath stringByAppendingPathComponent:[fileName stringByAppendingPathExtension:@"isb"]];
+                        
+                        CurrentInfo* info = [CurrentInfo sharedCurrentInfo];
+                        NSString* fullFilename = [self.resourceSaveDataPath stringByAppendingFormat:@"%@/%@",info.currentPkgDataPath, info.currentPkgDataTitle];
+                        lesson.isbfile = [fullFilename stringByAppendingPathComponent:[fileName stringByAppendingPathExtension:@"isb"]];
                         //NSLog(@"%@", lesson.isbfile);
                         
 					}
