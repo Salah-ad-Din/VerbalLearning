@@ -20,10 +20,6 @@
 #import "SpeakDetailListViewController.h"
 #import "StoreDownloadPkg.h"
 #import "CurrentInfo.h"
-typedef enum {
-    VIEWTYPE_INTENSIVE = 1,
-    VIEWTYPE_EXTENSIVE,
-} VIEWTYPE;
 
 @interface CenterDrawerViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *navigationButton;
@@ -192,24 +188,24 @@ typedef enum {
 - (IBAction)didPressView:(UITapGestureRecognizer *)gesture
 {
 
-    VIEWTYPE viewType;
+    LESSONTYPE viewType;
     NSInteger order = 0;
     
     switch (gesture.view.tag) {
         case 1001:
-            viewType = VIEWTYPE_INTENSIVE;
+            viewType = LESSONTYPE_INTENSIVE;
             order = 0;
             break;
         case 1002:
-            viewType = VIEWTYPE_INTENSIVE;
+            viewType = LESSONTYPE_INTENSIVE;
             order = 1;
             break;
         case 1003:
-            viewType = VIEWTYPE_INTENSIVE;
+            viewType = LESSONTYPE_INTENSIVE;
             order = 2;
             break;
         case 1004:
-            viewType = VIEWTYPE_EXTENSIVE;
+            viewType = LESSONTYPE_EXTENSIVE;
             order = 0;
             break;
         default:
@@ -236,7 +232,7 @@ typedef enum {
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
     UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 320, 20)];
     label1.textAlignment = NSTextAlignmentCenter;
-    if (viewType == VIEWTYPE_INTENSIVE) {
+    if (viewType == LESSONTYPE_INTENSIVE) {
         label1.text = [self.parser.intensiveMArray[order] title];
     } else {
         label1.text = [self.parser.extensiveMArray[order] title];
@@ -250,7 +246,7 @@ typedef enum {
     
 
     NSInteger count = 0;
-    if (viewType == VIEWTYPE_INTENSIVE) {
+    if (viewType == LESSONTYPE_INTENSIVE) {
         count = [[self.parser.intensiveMArray[order] dataPkgCourseInfoArray] count];
         StoreDownloadPkg* downloadPkg = [[StoreDownloadPkg alloc] init];
         downloadPkg.info = self.parser.intensiveMArray[order];
@@ -258,20 +254,33 @@ typedef enum {
         [downloadPkg doDownload];
         CurrentInfo* lib = [CurrentInfo sharedCurrentInfo];
         NSRange r = [[downloadPkg getpkgPath] rangeOfString:STRING_VOICE_PKG_DIR];
-       if (r.location != NSNotFound) {
+        if (r.location != NSNotFound) {
             NSString* path = [[downloadPkg getpkgPath] substringFromIndex:(r.location + r.length + 1)];
             lib.currentPkgDataPath = path;
             lib.currentLibID = downloadPkg.info.libID;
+            lib.lessonType = LESSONTYPE_INTENSIVE;
          }
 
     } else {
         count = [[self.parser.extensiveMArray[order] dataPkgCourseInfoArray] count];
+        StoreDownloadPkg* downloadPkg = [[StoreDownloadPkg alloc] init];
+        downloadPkg.info = self.parser.extensiveMArray[order];
+        downloadPkg.info.libID = [LoginViewController rootViewController].selectOrgInfo.orgID;
+        [downloadPkg doDownload];
+        CurrentInfo* lib = [CurrentInfo sharedCurrentInfo];
+        NSRange r = [[downloadPkg getpkgPath] rangeOfString:STRING_VOICE_PKG_DIR];
+        if (r.location != NSNotFound) {
+            NSString* path = [[downloadPkg getpkgPath] substringFromIndex:(r.location + r.length + 1)];
+            lib.currentPkgDataPath = path;
+            lib.currentLibID = downloadPkg.info.libID;
+            lib.lessonType = LESSONTYPE_EXTENSIVE;
+        }
     }
     for (int i = 0; i < count; i++) {
         NSString *title = nil;
         NSString *xmlFileName = nil;
 
-        if (viewType == VIEWTYPE_INTENSIVE) {
+        if (viewType == LESSONTYPE_INTENSIVE) {
             title = [[[self.parser.intensiveMArray[order] dataPkgCourseInfoArray] objectAtIndex:i] title];
             xmlFileName = [[[self.parser.intensiveMArray[order] dataPkgCourseInfoArray] objectAtIndex:i] file];
         } else {

@@ -38,3 +38,21 @@
 
 #define RESOURCE_BASE_URL                    @"http://m.isayb.com/rs/"
 #define STRING_VOICE_PKG_DIR    @"VoicePkgData"
+
+typedef enum {
+    LESSONTYPE_INTENSIVE = 1,
+    LESSONTYPE_EXTENSIVE,
+} LESSONTYPE;
+
+typedef enum {
+    PLAY_LESSON_TYPE_NONE = 0,
+    PLAY_LESSON = 1,
+    PLAY_READING_FLOWME = 2,
+}PLAY_LESSON_TYPE;
+
+typedef enum {
+    PLAY_STATUS_NONE = 0,
+    PLAY_STATUS_PLAYING,
+    PLAY_STATUS_PAUSING,
+    PLAY_STATUS_PAUSING_END
+} PLAY_STATUS;

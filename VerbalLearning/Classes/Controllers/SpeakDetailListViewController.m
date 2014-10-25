@@ -11,6 +11,7 @@
 #import "Lesson.h"
 #import "LoginViewController.h"
 #import "ListeningViewController.h"
+#import "ListeningArticleViewController.h"
 #import "CurrentInfo.h"
 @interface SpeakDetailListViewController ()
 
@@ -70,21 +71,31 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger nPostion = indexPath.row;
-    ListeningViewController *detailViewController = [[ListeningViewController alloc] initWithNibName:@"ListeningViewController" bundle:nil];
-    // ...
-    // Pass the selected object to the new view controller.
-
-    if (nPostion < ([self.course.lessons count])) {
-        CurrentInfo* lib = [CurrentInfo sharedCurrentInfo];
-        lib.currentPkgDataTitle = self.pkgTitle;
-        detailViewController.nPositionInCourse = nPostion;
-        detailViewController.courseParser = self.parser;
-        detailViewController.delegate = (id)self;
-  		//[[NSNotificationCenter defaultCenter] postNotificationName: NOTIFICATION_ADDNEWNAVI object: detailViewController];
-        //[detailViewController release];
-        [self.navigationController pushViewController:detailViewController animated:YES];
+    CurrentInfo* lib = [CurrentInfo sharedCurrentInfo];
+    
+    if (lib.lessonType == LESSONTYPE_INTENSIVE) {
+        ListeningViewController *detailViewController = [[ListeningViewController alloc] initWithNibName:@"ListeningViewController" bundle:nil];
+        if (nPostion < ([self.course.lessons count])) {
+            lib.currentPkgDataTitle = self.pkgTitle;
+            detailViewController.nPositionInCourse = nPostion;
+            detailViewController.courseParser = self.parser;
+            detailViewController.delegate = (id)self;
+            //[[NSNotificationCenter defaultCenter] postNotificationName: NOTIFICATION_ADDNEWNAVI object: detailViewController];
+            //[detailViewController release];
+            [self.navigationController pushViewController:detailViewController animated:YES];
+        }
+    } else {
+        ListeningArticleViewController *detailViewController = [[ListeningArticleViewController alloc] initWithNibName:@"ListeningArticleViewController" bundle:nil];
+        if (nPostion < ([self.course.lessons count])) {
+            lib.currentPkgDataTitle = self.pkgTitle;
+            detailViewController.nPositionInCourse = nPostion;
+            detailViewController.courseParser = self.parser;
+            detailViewController.delegate = (id)self;
+            //[[NSNotificationCenter defaultCenter] postNotificationName: NOTIFICATION_ADDNEWNAVI object: detailViewController];
+            //[detailViewController release];
+            [self.navigationController pushViewController:detailViewController animated:YES];
+        }
     }
-
 }
 
 @end

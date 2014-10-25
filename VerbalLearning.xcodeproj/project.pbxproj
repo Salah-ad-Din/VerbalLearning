@@ -14,7 +14,6 @@
 		0DF128FA19EFB6900085F0D1 /* WaveFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF128F419EFB6900085F0D1 /* WaveFile.cpp */; };
 		0DF128FC19EFBDA70085F0D1 /* model.dat in Resources */ = {isa = PBXBuildFile; fileRef = 0DF128FB19EFBDA70085F0D1 /* model.dat */; };
 		91310684198DC9D8006B7364 /* SpeakListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91310682198DC9D8006B7364 /* SpeakListViewController.m */; };
-		91310685198DC9D8006B7364 /* SpeakListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91310683198DC9D8006B7364 /* SpeakListViewController.xib */; };
 		915AC41C19A7999800B6DE8C /* VLSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 915AC41B19A7999800B6DE8C /* VLSingleton.m */; };
 		915AC41F19A8B84E00B6DE8C /* DailyWordsInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 915AC41E19A8B84E00B6DE8C /* DailyWordsInfo.m */; };
 		915AC42219A8BB3300B6DE8C /* DailyWordsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 915AC42119A8BB3300B6DE8C /* DailyWordsParser.m */; };
@@ -58,7 +57,6 @@
 		917BF96B1997C43600A359EB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917BF96A1997C43600A359EB /* CoreText.framework */; };
 		917BF96D1997C44400A359EB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917BF96C1997C44400A359EB /* QuartzCore.framework */; };
 		9181917219B179F60043DE12 /* SpeakDetailListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9181917019B179F60043DE12 /* SpeakDetailListViewController.m */; };
-		9181917319B179F60043DE12 /* SpeakDetailListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9181917119B179F60043DE12 /* SpeakDetailListViewController.xib */; };
 		9181918619B37E170043DE12 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 9181917719B37E170043DE12 /* Course.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9181918719B37E170043DE12 /* CourseParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9181917919B37E170043DE12 /* CourseParser.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9181918819B37E170043DE12 /* DayParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9181917B19B37E170043DE12 /* DayParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -75,6 +73,8 @@
 		918191A619B383300043DE12 /* md5_one.c in Sources */ = {isa = PBXBuildFile; fileRef = 9181919E19B383300043DE12 /* md5_one.c */; };
 		918191A719B383300043DE12 /* SmartEncrypt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9181919F19B383300043DE12 /* SmartEncrypt.cpp */; };
 		919EB21319B4BEC6009486F7 /* SpeakDetailListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 919EB21219B4BEC6009486F7 /* SpeakDetailListTableViewCell.m */; };
+		91B50F4719FA7FA900031265 /* ListeningArticleViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 91B50F4519FA7FA900031265 /* ListeningArticleViewController.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		91B50F4819FA7FA900031265 /* ListeningArticleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91B50F4619FA7FA900031265 /* ListeningArticleViewController.xib */; };
 		91C727DB19AE196900FDD9C5 /* SpeakListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C727DA19AE196900FDD9C5 /* SpeakListTableViewCell.m */; };
 		91CD5D651975844C001E2814 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CD5D641975844C001E2814 /* Foundation.framework */; };
 		91CD5D671975844C001E2814 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CD5D661975844C001E2814 /* CoreGraphics.framework */; };
@@ -90,7 +90,6 @@
 		91CD5D8A1975844C001E2814 /* VerbalLearningTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD5D891975844C001E2814 /* VerbalLearningTests.m */; };
 		91CD5D991975865D001E2814 /* Database in Resources */ = {isa = PBXBuildFile; fileRef = 91CD5D981975865D001E2814 /* Database */; };
 		91CD5DA51975874C001E2814 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CD5DA31975874C001E2814 /* LoginViewController.m */; };
-		91CD5DA61975874C001E2814 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91CD5DA41975874C001E2814 /* LoginViewController.xib */; };
 		91CE6D0D19BDB2CD0022DD05 /* ButtonPlayObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CE6CE719BDB2CD0022DD05 /* ButtonPlayObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		91CE6D0E19BDB2CD0022DD05 /* CollapseClick.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CE6CEA19BDB2CD0022DD05 /* CollapseClick.m */; };
 		91CE6D0F19BDB2CD0022DD05 /* CollapseClickArrow.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CE6CEC19BDB2CD0022DD05 /* CollapseClickArrow.m */; };
@@ -168,9 +167,12 @@
 		91E7F2AA19839049006C6CF3 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7F2A619839049006C6CF3 /* UIViewController+MMDrawerController.m */; };
 		91E7F2AD198390AD006C6CF3 /* HomeDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7F2AC198390AD006C6CF3 /* HomeDrawerViewController.m */; };
 		91E7F2B619839169006C6CF3 /* CenterDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7F2B419839169006C6CF3 /* CenterDrawerViewController.m */; };
-		91E7F2B719839169006C6CF3 /* CenterDrawerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91E7F2B519839169006C6CF3 /* CenterDrawerViewController.xib */; };
 		91E7F2BB19839181006C6CF3 /* LeftSideDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7F2B919839181006C6CF3 /* LeftSideDrawerViewController.m */; };
-		91E7F2BC19839181006C6CF3 /* LeftSideDrawerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91E7F2BA19839181006C6CF3 /* LeftSideDrawerViewController.xib */; };
+		91FEC3F419FA1ECF004876EF /* CenterDrawerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91FEC3F319FA1ECF004876EF /* CenterDrawerViewController.xib */; };
+		91FEC3F619FA1EDC004876EF /* LeftSideDrawerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91FEC3F519FA1EDC004876EF /* LeftSideDrawerViewController.xib */; };
+		91FEC3F819FA1EE1004876EF /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91FEC3F719FA1EE1004876EF /* LoginViewController.xib */; };
+		91FEC3FA19FA1EEF004876EF /* SpeakDetailListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91FEC3F919FA1EEF004876EF /* SpeakDetailListViewController.xib */; };
+		91FEC3FC19FA1EF3004876EF /* SpeakListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91FEC3FB19FA1EF3004876EF /* SpeakListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,7 +199,6 @@
 		0DF128FB19EFBDA70085F0D1 /* model.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = model.dat; sourceTree = "<group>"; };
 		91310681198DC9D8006B7364 /* SpeakListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakListViewController.h; sourceTree = "<group>"; };
 		91310682198DC9D8006B7364 /* SpeakListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakListViewController.m; sourceTree = "<group>"; };
-		91310683198DC9D8006B7364 /* SpeakListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SpeakListViewController.xib; path = ../Controllers/SpeakListViewController.xib; sourceTree = "<group>"; };
 		915AC41A19A7999800B6DE8C /* VLSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VLSingleton.h; path = VerbalLearning/VLSingleton.h; sourceTree = SOURCE_ROOT; };
 		915AC41B19A7999800B6DE8C /* VLSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VLSingleton.m; path = VerbalLearning/VLSingleton.m; sourceTree = SOURCE_ROOT; };
 		915AC41D19A8B84E00B6DE8C /* DailyWordsInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyWordsInfo.h; sourceTree = "<group>"; };
@@ -281,7 +282,6 @@
 		917BF96C1997C44400A359EB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9181916F19B179F60043DE12 /* SpeakDetailListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakDetailListViewController.h; sourceTree = "<group>"; };
 		9181917019B179F60043DE12 /* SpeakDetailListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakDetailListViewController.m; sourceTree = "<group>"; };
-		9181917119B179F60043DE12 /* SpeakDetailListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SpeakDetailListViewController.xib; path = ../Controllers/SpeakDetailListViewController.xib; sourceTree = "<group>"; };
 		9181917619B37E170043DE12 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
 		9181917719B37E170043DE12 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		9181917819B37E170043DE12 /* CourseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseParser.h; sourceTree = "<group>"; };
@@ -317,6 +317,9 @@
 		918191A019B383300043DE12 /* SmartEncrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartEncrypt.h; sourceTree = "<group>"; };
 		919EB21119B4BEC6009486F7 /* SpeakDetailListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakDetailListTableViewCell.h; sourceTree = "<group>"; };
 		919EB21219B4BEC6009486F7 /* SpeakDetailListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakDetailListTableViewCell.m; sourceTree = "<group>"; };
+		91B50F4419FA7FA900031265 /* ListeningArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListeningArticleViewController.h; sourceTree = "<group>"; };
+		91B50F4519FA7FA900031265 /* ListeningArticleViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ListeningArticleViewController.mm; sourceTree = "<group>"; };
+		91B50F4619FA7FA900031265 /* ListeningArticleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListeningArticleViewController.xib; sourceTree = "<group>"; };
 		91C727D919AE196900FDD9C5 /* SpeakListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakListTableViewCell.h; sourceTree = "<group>"; };
 		91C727DA19AE196900FDD9C5 /* SpeakListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakListTableViewCell.m; sourceTree = "<group>"; };
 		91CD5D611975844C001E2814 /* VerbalLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VerbalLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -338,7 +341,6 @@
 		91CD5D981975865D001E2814 /* Database */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Database; sourceTree = "<group>"; };
 		91CD5DA21975874C001E2814 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		91CD5DA31975874C001E2814 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		91CD5DA41975874C001E2814 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ../Controllers/LoginViewController.xib; sourceTree = "<group>"; };
 		91CE6CE619BDB2CD0022DD05 /* ButtonPlayObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonPlayObject.h; sourceTree = "<group>"; };
 		91CE6CE719BDB2CD0022DD05 /* ButtonPlayObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonPlayObject.m; sourceTree = "<group>"; };
 		91CE6CE919BDB2CD0022DD05 /* CollapseClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollapseClick.h; sourceTree = "<group>"; };
@@ -479,10 +481,13 @@
 		91E7F2AC198390AD006C6CF3 /* HomeDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDrawerViewController.m; sourceTree = "<group>"; };
 		91E7F2B319839169006C6CF3 /* CenterDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterDrawerViewController.h; sourceTree = "<group>"; };
 		91E7F2B419839169006C6CF3 /* CenterDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterDrawerViewController.m; sourceTree = "<group>"; };
-		91E7F2B519839169006C6CF3 /* CenterDrawerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CenterDrawerViewController.xib; path = ../Controllers/CenterDrawerViewController.xib; sourceTree = "<group>"; };
 		91E7F2B819839181006C6CF3 /* LeftSideDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSideDrawerViewController.h; sourceTree = "<group>"; };
 		91E7F2B919839181006C6CF3 /* LeftSideDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSideDrawerViewController.m; sourceTree = "<group>"; };
-		91E7F2BA19839181006C6CF3 /* LeftSideDrawerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LeftSideDrawerViewController.xib; path = ../Controllers/LeftSideDrawerViewController.xib; sourceTree = "<group>"; };
+		91FEC3F319FA1ECF004876EF /* CenterDrawerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CenterDrawerViewController.xib; path = VerbalLearning/Classes/Controllers/CenterDrawerViewController.xib; sourceTree = SOURCE_ROOT; };
+		91FEC3F519FA1EDC004876EF /* LeftSideDrawerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LeftSideDrawerViewController.xib; path = VerbalLearning/Classes/Controllers/LeftSideDrawerViewController.xib; sourceTree = SOURCE_ROOT; };
+		91FEC3F719FA1EE1004876EF /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = VerbalLearning/Classes/Controllers/LoginViewController.xib; sourceTree = SOURCE_ROOT; };
+		91FEC3F919FA1EEF004876EF /* SpeakDetailListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SpeakDetailListViewController.xib; path = VerbalLearning/Classes/Controllers/SpeakDetailListViewController.xib; sourceTree = SOURCE_ROOT; };
+		91FEC3FB19FA1EF3004876EF /* SpeakListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SpeakListViewController.xib; path = VerbalLearning/Classes/Controllers/SpeakListViewController.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -731,8 +736,8 @@
 		9181917419B17A0D0043DE12 /* Speak */ = {
 			isa = PBXGroup;
 			children = (
-				9181917119B179F60043DE12 /* SpeakDetailListViewController.xib */,
-				91310683198DC9D8006B7364 /* SpeakListViewController.xib */,
+				91FEC3FB19FA1EF3004876EF /* SpeakListViewController.xib */,
+				91FEC3F919FA1EEF004876EF /* SpeakDetailListViewController.xib */,
 			);
 			name = Speak;
 			sourceTree = "<group>";
@@ -958,9 +963,9 @@
 		91CD5DA71975875C001E2814 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
-				91E7F2B519839169006C6CF3 /* CenterDrawerViewController.xib */,
-				91E7F2BA19839181006C6CF3 /* LeftSideDrawerViewController.xib */,
-				91CD5DA41975874C001E2814 /* LoginViewController.xib */,
+				91FEC3F319FA1ECF004876EF /* CenterDrawerViewController.xib */,
+				91FEC3F519FA1EDC004876EF /* LeftSideDrawerViewController.xib */,
+				91FEC3F719FA1EE1004876EF /* LoginViewController.xib */,
 			);
 			name = LogIn;
 			sourceTree = "<group>";
@@ -1011,6 +1016,9 @@
 				91CE6CF219BDB2CD0022DD05 /* ListeningViewController.xib */,
 				91CE6CF319BDB2CD0022DD05 /* RecordingObject.h */,
 				91CE6CF419BDB2CD0022DD05 /* RecordingObject.mm */,
+				91B50F4419FA7FA900031265 /* ListeningArticleViewController.h */,
+				91B50F4519FA7FA900031265 /* ListeningArticleViewController.mm */,
+				91B50F4619FA7FA900031265 /* ListeningArticleViewController.xib */,
 			);
 			path = Listening;
 			sourceTree = "<group>";
@@ -1357,26 +1365,27 @@
 			files = (
 				91CE6D1E19BDB2CD0022DD05 /* SettingSwitchCell.xib in Resources */,
 				91CE6D1319BDB2CD0022DD05 /* ListeningViewController.xib in Resources */,
-				91E7F2BC19839181006C6CF3 /* LeftSideDrawerViewController.xib in Resources */,
+				91FEC3F619FA1EDC004876EF /* LeftSideDrawerViewController.xib in Resources */,
 				91CE6D9319BDBBF00022DD05 /* LessonCell.xib in Resources */,
 				91CE6D1C19BDB2CD0022DD05 /* SettingShowTranslationCell.xib in Resources */,
-				91E7F2B719839169006C6CF3 /* CenterDrawerViewController.xib in Resources */,
 				91CE6D1A19BDB2CD0022DD05 /* SettingLogoCell.xib in Resources */,
 				91CE6D1719BDB2CD0022DD05 /* SettingAboutViewController.xib in Resources */,
 				91CE6D2219BDB2CD0022DD05 /* SettingViewController.xib in Resources */,
 				91CE6D4619BDB68C0022DD05 /* DownloadWholeViewController.xib in Resources */,
 				91CE6D9519BDBBF00022DD05 /* LessonsViewController.xib in Resources */,
-				91CD5DA61975874C001E2814 /* LoginViewController.xib in Resources */,
-				91310685198DC9D8006B7364 /* SpeakListViewController.xib in Resources */,
+				91FEC3F419FA1ECF004876EF /* CenterDrawerViewController.xib in Resources */,
+				91FEC3FC19FA1EF3004876EF /* SpeakListViewController.xib in Resources */,
 				91CE6D4B19BDB68C0022DD05 /* RecordingScoreViewController.xib in Resources */,
 				91CE6D1119BDB2CD0022DD05 /* CollapseClickCell.xib in Resources */,
-				9181917319B179F60043DE12 /* SpeakDetailListViewController.xib in Resources */,
+				91FEC3F819FA1EE1004876EF /* LoginViewController.xib in Resources */,
 				91CD5D6F1975844C001E2814 /* InfoPlist.strings in Resources */,
 				0DF128FC19EFBDA70085F0D1 /* model.dat in Resources */,
 				91CE6D9719BDBBF00022DD05 /* ListeningCell.xib in Resources */,
 				91CD5D771975844C001E2814 /* Images.xcassets in Resources */,
 				91CE6D2019BDB2CD0022DD05 /* SettingTrainingModeCell.xib in Resources */,
 				91CE6D4319BDB68C0022DD05 /* CustomViewController.xib in Resources */,
+				91FEC3FA19FA1EEF004876EF /* SpeakDetailListViewController.xib in Resources */,
+				91B50F4819FA7FA900031265 /* ListeningArticleViewController.xib in Resources */,
 				91CE6D9A19BDBBF00022DD05 /* RecordingWaveCell.xib in Resources */,
 				91CD5D991975865D001E2814 /* Database in Resources */,
 			);
@@ -1467,6 +1476,7 @@
 				91CE6D7E19BDBBAF0022DD05 /* CourseViewController.m in Sources */,
 				91CE6D6719BDB84A0022DD05 /* GTMHTTPFetcherLogging.m in Sources */,
 				91CE6D7019BDB8DA0022DD05 /* DACircularProgressView.m in Sources */,
+				91B50F4719FA7FA900031265 /* ListeningArticleViewController.mm in Sources */,
 				917BF93619975DA000A359EB /* StoreVoiceDataListParser.m in Sources */,
 				91E7F2AA19839049006C6CF3 /* UIViewController+MMDrawerController.m in Sources */,
 				91CE6D4819BDB68C0022DD05 /* FavorViewCell.m in Sources */,

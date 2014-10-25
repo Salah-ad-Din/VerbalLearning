@@ -25,6 +25,7 @@
 @property (nonatomic, retain) NSString* currentPkgDataPath;
 @property (nonatomic, retain) NSString* currentPkgDataTitle;
 @property (nonatomic, assign) NSInteger currentLibID;
+@property (nonatomic, assign) LESSONTYPE lessonType;
 
 + (CurrentInfo*)sharedCurrentInfo;
 @end

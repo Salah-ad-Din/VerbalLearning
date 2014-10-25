@@ -257,6 +257,8 @@ static bool bLoadModel = NO;
         long nLen = LoadDecodeBuffer(infile, &filedata, (const unsigned char*)[libinfo.lisence cStringUsingEncoding:NSASCIIStringEncoding], libinfo.lisenceLen);
         
         tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithBytes:filedata length:nLen]] retain];
+        
+//        NSString *teststring = [[NSString alloc] initWithData:[NSData dataWithBytes:filedata length:nLen] encoding:NSUTF8StringEncoding];
         //tbxml = [[TBXML tbxmlWithXMLFile:xatFile] retain];
         //FreeBuffer(&filedata);
 		
@@ -369,6 +371,12 @@ static bool bLoadModel = NO;
                 if (wordsEle) {
                     sentence.words = [[NSMutableArray alloc] init];
                     [self loadWord:wordsEle to:sentence.words];
+                }
+                
+                //过滤空句子
+                if ([sentence.starttime isEqualToString:@""] || [sentence.endtime isEqualToString:@""] || [sentence.orintext isEqualToString:@""] || [sentence.transtext isEqualToString:@""]) {
+                    sentenceEle = [TBXML nextSiblingNamed:@"s" searchFromElement:sentenceEle];
+                    continue;
                 }
                 
 				[sentences addObject:sentence];

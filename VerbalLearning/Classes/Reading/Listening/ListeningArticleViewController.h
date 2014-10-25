@@ -1,9 +1,9 @@
 //
-//  ListeningViewController.h
-//  Say
+//  ListeningArticleViewController.h
+//  VerbalLearning
 //
-//  Created by JiaLi on 11-7-16.
-//  Copyright 2011年 __MyCompanyName__. All rights reserved.
+//  Created by Raymond Lee on 14/10/24.
+//  Copyright (c) 2014年 rayxar. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -19,14 +19,15 @@
 #define VOLUMNVIEW_TAG  50001
 #define READYRECORDINGVIEW_TAG  50102
 
-@protocol ListeningViewControllerDelegate <NSObject>
+@protocol ListeningArticleViewControllerDelegate <NSObject>
 
 - (NSString*)getPkgTitle;
 - (NSString*)getCourseTitle;
 
 @end
 
-@interface ListeningViewController : UIViewController <AVAudioPlayerDelegate> {
+@interface ListeningArticleViewController : UIViewController<AVAudioPlayerDelegate>
+{
     NSMutableArray*                 _sentencesArray;
     NSMutableArray*                 _teachersArray;
     UITableView*                    _sentencesTableView;
@@ -93,7 +94,7 @@
 
 @property (nonatomic, assign) NSInteger nPositionInCourse;
 @property (nonatomic, retain) CourseParser* courseParser;
-@property (nonatomic, assign) id<ListeningViewControllerDelegate>delegate;
+@property (nonatomic, assign) id<ListeningArticleViewControllerDelegate>delegate;
 @property (nonatomic, retain) IBOutlet UIView* adView;
 @property (nonatomic, retain) IBOutlet CollapseClick* collpaseLesson;
 
@@ -132,4 +133,5 @@
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag;
 - (NSString*)getRecordingFilePath:(NSInteger)nIndex;
 - (void)checkTopRecording;
+
 @end
