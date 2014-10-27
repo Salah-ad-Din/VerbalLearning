@@ -91,6 +91,7 @@
             detailViewController.nPositionInCourse = nPostion;
             detailViewController.courseParser = self.parser;
             detailViewController.delegate = (id)self;
+            detailViewController.lessonTitle = [(Lesson *)self.course.lessons[indexPath.row] title];
             //[[NSNotificationCenter defaultCenter] postNotificationName: NOTIFICATION_ADDNEWNAVI object: detailViewController];
             //[detailViewController release];
             [self.navigationController pushViewController:detailViewController animated:YES];

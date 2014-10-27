@@ -30,6 +30,8 @@
 #import "RecordingScoreViewController.h"
 #import "Animations.h"
 #import "BuyButton.h"
+#import "TeacherTableViewCell.h"
+#import "PopoverView.h"
 
 #define LOADINGVIEWTAG      20933
 #define WAITINGVIEWTAG      20934
@@ -61,6 +63,21 @@
 {
     RecordingScoreViewController* _scoreViewController;
 }
+
+@property (nonatomic, retain) IBOutlet UITableView *lessonTableView;
+@property (strong, nonatomic) IBOutlet UIView *wholeArticleBar;
+@property (strong, nonatomic) IBOutlet UIView *singleSentenceBar;
+@property (strong, nonatomic) IBOutlet UIView *tabBarView;
+@property (strong, nonatomic) IBOutlet UIImageView *singleSentencePlayImageView;
+@property (strong, nonatomic) IBOutlet UILabel *singleSentencePlayLabel;
+@property (strong, nonatomic) IBOutlet UIButton *menuButton;
+@property (assign, nonatomic) BOOL translateHidden;
+@property (strong, nonatomic) IBOutlet UIImageView *wholeArticlePlayImageView;
+@property (strong, nonatomic) IBOutlet UILabel *wholeArticlePlayLabel;
+@property (strong, nonatomic) IBOutlet UIView *followReadBar;
+@property (strong, nonatomic) IBOutlet UIButton *followReadButton;
+
+
 @end
 
 @implementation ListeningViewController
@@ -192,6 +209,7 @@
     [center addObserver:self selector:@selector(settingChanged:) name:NOTI_CHANGED_SETTING_VALUE object:nil]; 
 
    [self performSelector:@selector(initDownload) withObject:nil afterDelay:1.0];
+    
 }
 
 - (void)initDownload
@@ -486,7 +504,7 @@
     [self reloadTableView];
 }
 
-
+/*
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (!(section < [self.sentencesArray count])) {
         return 44.0f;
@@ -507,16 +525,19 @@
 	height = fmax(height, HEIGHT_OF_LISTENINGCELL);
 	return height;
 }
+ */
 
 
 - (void)firstOneClicked{
-    
+    [_lessonTableView reloadData];
+    /*
     self.collpaseLesson.CollapseClickDelegate = (id)self;
     [self.collpaseLesson reloadCollapseClick];
     
     // If you want a cell open on load, run this method:
     [self.collpaseLesson openCollapseClickCellAtIndex:0 animated:YES];
     self.posLabel.text = [NSString stringWithFormat:@"%d/%d", 1, [self.sentencesArray count]];
+     */
 }
 #pragma Notifications
 - (void)settingChanged:(NSNotification *)aNotification
@@ -772,6 +793,9 @@
     switch (buttonTag) {
         case PLAY_SRC_VOICE_BUTTON_TAG:
         {
+            _singleSentencePlayImageView.image = [UIImage imageNamed:@"PauseButton"];
+            _singleSentencePlayLabel.text = @"暂停";
+            
             NSURL *fileURL = [[NSURL alloc] initFileURLWithPath: wavefile];
             AVAudioPlayer *newPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL: fileURL error: nil];
             [fileURL release];
@@ -875,6 +899,7 @@
 
 - (void)clickPlayButton:(NSInteger)buttonTag withSentence:(id)sen withCell:(RecordingWaveCell *)cell
 {
+
     BOOL canPlay1 =  (nLesson == PLAY_LESSON && ePlayStatus == PLAY_STATUS_PAUSING);
     BOOL canPlay2 =  (nLesson == PLAY_READING_FLOWME && ePlayStatus == PLAY_STATUS_PAUSING);
    
@@ -900,7 +925,10 @@
 - (void)pausePlaying:(RecordingWaveCell *)cell
 {
     [self.player pause];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(pausePlaying:) object:cell];
     cell.playingButton.enabled = YES;
+    _singleSentencePlayImageView.image = [UIImage imageNamed:@"PlayButton"];
+    _singleSentencePlayLabel.text = @"原音";
 }
 
 - (void)stopPlayingRecording:(RecordingWaveCell *)cell{
@@ -1023,16 +1051,19 @@
         case PLAY_STATUS_NONE:
             ePlayStatus = PLAY_STATUS_PLAYING;
             [setButton setImage:[UIImage imageNamed:@"Btn_Pause_S@2x.png"] forState:UIControlStateNormal];
+            [_followReadButton setImage:[UIImage imageNamed:@"PauseIcon"] forState:UIControlStateNormal];
             [self playfromCurrentPos];
             break;
         case PLAY_STATUS_PAUSING:
             ePlayStatus = PLAY_STATUS_PLAYING;
             [setButton setImage:[UIImage imageNamed:@"Btn_Pause_S@2x.png"] forState:UIControlStateNormal];
+            [_followReadButton setImage:[UIImage imageNamed:@"PauseIcon"] forState:UIControlStateNormal];
             [self playfromCurrentPos];
             break;
         case PLAY_STATUS_PLAYING:
             ePlayStatus = PLAY_STATUS_PAUSING;
             [setButton setImage:[UIImage imageNamed:@"Btn_Play_S@2x.png"] forState:UIControlStateNormal];
+            [_followReadButton setImage:[UIImage imageNamed:@"PlayIcon"] forState:UIControlStateNormal];
             if (self.player) {
                 [self.player pause];
                 [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_STOP_ANIMITIONPRESS_RIGHTNOW object:nil userInfo:nil];
@@ -1064,16 +1095,10 @@
     }
     
     if (clickindex < [_sentencesArray count]) {
-        [self updateUI];
+        [_lessonTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:clickindex inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
         Sentence* sentence = [_sentencesArray objectAtIndex:clickindex];
         NSTimeInterval inter = [sentence endTime] - [sentence startTime];
-        CollapseClickCell* wholeCell = [self.collpaseLesson collapseClickCellForIndex:clickindex];
-        
-        UIView* contentView = [wholeCell.ContentView viewWithTag:102];
-        if (contentView != nil) {
-            RecordingWaveCell* cell = (RecordingWaveCell*)[contentView viewWithTag:PLAYINGSRC_WAVE_CELL_TAG];
-            [self playing:PLAY_SRC_VOICE_BUTTON_TAG withSentence:sentence withCell:cell];
-        }
+        [self playing:PLAY_SRC_VOICE_BUTTON_TAG withSentence:sentence withCell:nil];
         [self performSelector:@selector(pauseintime) withObject:self afterDelay:inter];
     }
 }
@@ -1129,6 +1154,11 @@
 
 - (void)dimissCustomController:(UIViewController*)controlloer {
     [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideBottomBottom];
+}
+
+- (IBAction)backToPrevious
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)myplayer successfully:(BOOL)flag
@@ -1196,17 +1226,12 @@
     }
     NSInteger index = [clickNum intValue];
     // start recording
-    CollapseClickCell* wholeCell = [self.collpaseLesson collapseClickCellForIndex:index];
     
-    UIView* contentView = [wholeCell.ContentView viewWithTag:102];
-    if (contentView != nil) {
-        RecordingWaveCell* recoringCell = (RecordingWaveCell*)[contentView viewWithTag:PLAYINGSRC_WAVE_CELL_TAG];
-        if (index < [self.sentencesArray count]) {
-            Sentence* sentence = [_sentencesArray objectAtIndex:index];
-            // recording, stop recording in this function:
-            clickindex = index;
-            [self playing:RECORDING_USER_VOICE_BUTTON_TAG withSentence:sentence withCell:recoringCell];
-        }
+    if (index < [self.sentencesArray count]) {
+        Sentence* sentence = [_sentencesArray objectAtIndex:index];
+        // recording, stop recording in this function:
+        clickindex = index;
+        [self playing:RECORDING_USER_VOICE_BUTTON_TAG withSentence:sentence withCell:nil];
     }
 }
 
@@ -1251,4 +1276,185 @@
     _scoreViewController.view.center = self.view.center;
     [self presentPopupViewController:_scoreViewController animationType:MJPopupViewAnimationSlideRightLeft];
 }
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.sentencesArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identifier = @"reusecell";
+    TeacherTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (nil == cell) {
+        cell = [[TeacherTableViewCell alloc] init];
+    }
+    
+    int nTeacher = 0;
+    Teacher* teacher1 = nil;
+    Teacher* teacher2 = nil;
+    NSInteger section = indexPath.row;
+    Sentence * sentence = [self.sentencesArray objectAtIndex:section];
+    if ([self.teachersArray count] > 1) {
+        teacher1 = [self.teachersArray objectAtIndex:0];
+        teacher2 = [self.teachersArray objectAtIndex:1];
+        if ([teacher1.teacherid isEqualToString:sentence.techerid]) {
+            nTeacher = 1;
+        } else {
+            nTeacher = 2;
+        }
+    } else {
+        if (section % 2 == 0) {
+            nTeacher = 1;
+        } else {
+            nTeacher = 2;
+        }
+    }
+    /*
+    ConfigData* configData = [ConfigData sharedConfigData];
+    NSString* teacherfemale1 = configData.nTeacherHeadStyle == 0 ? @"female_a@2x.png" :@"female_b@2x.png";
+    NSString* teachermale1 = configData.nTeacherHeadStyle == 0 ? @"male_a@2x.png" :@"male_b@2x.png";;
+    NSString* teacherfemale2 = configData.nTeacherHeadStyle == 0 ?@"male_a@2x.png" :@"male_b@2x.png";
+    NSString* teachermale2 = configData.nTeacherHeadStyle == 0 ? @"female_a@2x.png" :@"female_b@2x.png";
+     */
+    switch (nTeacher) {
+        case 1:
+        {
+            if ([[teacher1 gender] isEqualToString:@"female"]) {
+                cell.teacherImage.image = [UIImage imageNamed:@"FemaleTeacher"];
+            } else {
+                cell.teacherImage.image = [UIImage imageNamed:@"MaleTeacher"];
+            }
+        }
+            
+            break;
+        case 2:
+        {
+            if ([[teacher1 gender] isEqualToString:@"female"]) {
+                cell.teacherImage.image = [UIImage imageNamed:@"FemaleTeacher"];
+            } else {
+                cell.teacherImage.image = [UIImage imageNamed:@"MaleTeacher"];
+            }
+            if ([[teacher2 gender] isEqualToString:@"female"]) {
+                cell.teacherImage.image = [UIImage imageNamed:@"FemaleTeacher"];
+            } else {
+                cell.teacherImage.image = [UIImage imageNamed:@"MaleTeacher"];
+            }
+            break;
+        }
+        default:
+            cell.teacherImage.image = [UIImage imageNamed:@"FemaleTeacher"];
+            break;
+    }
+    cell.engLabel.text = sentence.orintext;
+    cell.zhLabel.text = sentence.transtext;
+    cell.zhLabel.hidden = _translateHidden;
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    clickindex = indexPath.row;
+}
+
+#pragma mark - gesture
+- (IBAction)singleSentencePlayGesture:(UITapGestureRecognizer *)tap
+{
+    if (self.player.isPlaying) {
+        [self pausePlaying:nil];
+
+    } else {
+        Sentence* sentence = [_sentencesArray objectAtIndex:clickindex];
+        [self clickPlayButton:PLAY_SRC_VOICE_BUTTON_TAG withSentence:sentence withCell:nil];
+
+    }
+}
+
+- (IBAction)singleSentenceRecordGesture:(UITapGestureRecognizer *)tap
+{
+    Sentence* sentence = [_sentencesArray objectAtIndex:clickindex];
+    [self clickPlayButton:RECORDING_USER_VOICE_BUTTON_TAG withSentence:sentence withCell:nil];
+}
+
+
+- (IBAction)singleSentencePlayRecordGesture:(UITapGestureRecognizer *)tap
+{
+    Sentence* sentence = [_sentencesArray objectAtIndex:clickindex];
+    [self clickPlayButton:PLAY_USER_VOICE_BUTTON_TAG withSentence:sentence withCell:nil];
+}
+
+- (IBAction)menuButtonPressed:(UIButton *)sender
+{
+    CGPoint point = CGPointMake(sender.frame.origin.x + sender.frame.size.width/2, sender.frame.origin.y + sender.frame.size.height);
+    NSArray *titles = @[@"单句练习", @"全文试听", @"跟读练习"];
+    NSArray *images = @[@"PaperPlane", @"HeadPhone2", @"Rocket"];
+    PopoverView *pop = [[PopoverView alloc] initWithPoint:point titles:titles images:images];
+    pop.selectRowAtIndex = ^(NSInteger index){
+        [self selectListenMode:index];
+    };
+    [pop show];
+}
+
+- (IBAction)playWholeLessonGesture:(UITapGestureRecognizer *)tap
+{
+    [self clickReadLessonButton:nil];
+    if (self.player.isPlaying) {
+        _wholeArticlePlayImageView.image = [UIImage imageNamed:@"PauseIcon"];
+        _wholeArticlePlayLabel.text = @"暂停";
+
+    } else {
+        _wholeArticlePlayImageView.image = [UIImage imageNamed:@"PlayIcon"];
+        _wholeArticlePlayLabel.text = @"播放";
+    }
+}
+
+- (IBAction)handleTranslateGesture:(UITapGestureRecognizer *)tap
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"HandleHideTranslate" object:nil];
+    _translateHidden = !_translateHidden;
+}
+
+- (IBAction)reviewSententceGesture:(UITapGestureRecognizer *)tap
+{
+    if (self.player.isPlaying) {
+        [self playWholeLessonGesture:nil];
+    }
+    Sentence* sentence = [_sentencesArray objectAtIndex:clickindex];
+    [self clickPlayButton:PLAY_SRC_VOICE_BUTTON_TAG withSentence:sentence withCell:nil];
+}
+
+- (void)selectListenMode:(NSInteger)index
+{
+    switch (index) {
+        case 0:
+            //单句训练
+            _singleSentenceBar.hidden = NO;
+            _wholeArticleBar.hidden = YES;
+            _followReadBar.hidden = YES;
+            [_menuButton setTitle:@"单句训练" forState:UIControlStateNormal];
+            break;
+        case 1:
+            //全文试听
+            _singleSentenceBar.hidden = YES;
+            _wholeArticleBar.hidden = NO;
+            _followReadBar.hidden = YES;
+            [_menuButton setTitle:@"全文试听" forState:UIControlStateNormal];
+            [self playWholeLessonGesture:nil];
+            break;
+        case 2:
+            //跟读练习
+            _singleSentenceBar.hidden = YES;
+            _wholeArticleBar.hidden = YES;
+            _followReadBar.hidden = NO;
+            [_menuButton setTitle:@"跟读练习" forState:UIControlStateNormal];
+
+            break;
+        default:
+            break;
+    }
+}
+
+
 @end

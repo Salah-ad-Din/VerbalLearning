@@ -101,6 +101,7 @@
 @property (nonatomic, retain) IBOutlet UIButton* readeButton;
 @property (nonatomic, retain) IBOutlet UIButton* practiceButton;
 @property (nonatomic, retain) IBOutlet UILabel* posLabel;
+@property (nonatomic, retain) NSString *lessonTitle;
 
 - (void)initMembers;
 - (void)initDownload;

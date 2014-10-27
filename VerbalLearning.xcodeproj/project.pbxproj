@@ -17,6 +17,9 @@
 		915AC41C19A7999800B6DE8C /* VLSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 915AC41B19A7999800B6DE8C /* VLSingleton.m */; };
 		915AC41F19A8B84E00B6DE8C /* DailyWordsInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 915AC41E19A8B84E00B6DE8C /* DailyWordsInfo.m */; };
 		915AC42219A8BB3300B6DE8C /* DailyWordsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 915AC42119A8BB3300B6DE8C /* DailyWordsParser.m */; };
+		915F05FA19FC0BD100821E59 /* TeacherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 915F05F819FC0BD100821E59 /* TeacherTableViewCell.m */; };
+		915F05FB19FC0BD100821E59 /* TeacherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 915F05F919FC0BD100821E59 /* TeacherTableViewCell.xib */; };
+		915F05FE19FC3E6400821E59 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 915F05FD19FC3E6400821E59 /* PopoverView.m */; };
 		91608978197BAEDA0036C807 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 91608954197BAEDA0036C807 /* AFHTTPRequestOperation.m */; };
 		91608979197BAEDA0036C807 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 91608956197BAEDA0036C807 /* AFHTTPRequestOperationManager.m */; };
 		9160897A197BAEDA0036C807 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 91608958197BAEDA0036C807 /* AFHTTPSessionManager.m */; };
@@ -205,6 +208,11 @@
 		915AC41E19A8B84E00B6DE8C /* DailyWordsInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyWordsInfo.m; sourceTree = "<group>"; };
 		915AC42019A8BB3300B6DE8C /* DailyWordsParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyWordsParser.h; sourceTree = "<group>"; };
 		915AC42119A8BB3300B6DE8C /* DailyWordsParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyWordsParser.m; sourceTree = "<group>"; };
+		915F05F719FC0BD100821E59 /* TeacherTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeacherTableViewCell.h; path = VerbalLearning/Classes/Reading/Listening/TeacherTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		915F05F819FC0BD100821E59 /* TeacherTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TeacherTableViewCell.m; path = VerbalLearning/Classes/Reading/Listening/TeacherTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		915F05F919FC0BD100821E59 /* TeacherTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeacherTableViewCell.xib; path = VerbalLearning/Classes/Reading/Listening/TeacherTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		915F05FC19FC3E6400821E59 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
+		915F05FD19FC3E6400821E59 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
 		91608953197BAEDA0036C807 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		91608954197BAEDA0036C807 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		91608955197BAEDA0036C807 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -1011,6 +1019,9 @@
 				91CE6CE619BDB2CD0022DD05 /* ButtonPlayObject.h */,
 				91CE6CE719BDB2CD0022DD05 /* ButtonPlayObject.m */,
 				91CE6CE819BDB2CD0022DD05 /* Collapse */,
+				915F05F719FC0BD100821E59 /* TeacherTableViewCell.h */,
+				915F05F819FC0BD100821E59 /* TeacherTableViewCell.m */,
+				915F05F919FC0BD100821E59 /* TeacherTableViewCell.xib */,
 				91CE6CF019BDB2CD0022DD05 /* ListeningViewController.h */,
 				91CE6CF119BDB2CD0022DD05 /* ListeningViewController.mm */,
 				91CE6CF219BDB2CD0022DD05 /* ListeningViewController.xib */,
@@ -1019,6 +1030,8 @@
 				91B50F4419FA7FA900031265 /* ListeningArticleViewController.h */,
 				91B50F4519FA7FA900031265 /* ListeningArticleViewController.mm */,
 				91B50F4619FA7FA900031265 /* ListeningArticleViewController.xib */,
+				915F05FC19FC3E6400821E59 /* PopoverView.h */,
+				915F05FD19FC3E6400821E59 /* PopoverView.m */,
 			);
 			path = Listening;
 			sourceTree = "<group>";
@@ -1371,6 +1384,7 @@
 				91CE6D1A19BDB2CD0022DD05 /* SettingLogoCell.xib in Resources */,
 				91CE6D1719BDB2CD0022DD05 /* SettingAboutViewController.xib in Resources */,
 				91CE6D2219BDB2CD0022DD05 /* SettingViewController.xib in Resources */,
+				915F05FB19FC0BD100821E59 /* TeacherTableViewCell.xib in Resources */,
 				91CE6D4619BDB68C0022DD05 /* DownloadWholeViewController.xib in Resources */,
 				91CE6D9519BDBBF00022DD05 /* LessonsViewController.xib in Resources */,
 				91FEC3F419FA1ECF004876EF /* CenterDrawerViewController.xib in Resources */,
@@ -1430,6 +1444,7 @@
 				91608979197BAEDA0036C807 /* AFHTTPRequestOperationManager.m in Sources */,
 				91CE6D1819BDB2CD0022DD05 /* SettingData.m in Sources */,
 				91CE6D6919BDB84A0022DD05 /* GTMHTTPFetchHistory.m in Sources */,
+				915F05FA19FC0BD100821E59 /* TeacherTableViewCell.m in Sources */,
 				91CE6DAE19BDBE230022DD05 /* Animations.m in Sources */,
 				91608986197BAEDA0036C807 /* UIProgressView+AFNetworking.m in Sources */,
 				917BF9631997B50A00A359EB /* CAXException.cpp in Sources */,
@@ -1493,6 +1508,7 @@
 				91CE6D1419BDB2CD0022DD05 /* RecordingObject.mm in Sources */,
 				91CE6D6B19BDB84A0022DD05 /* GTMMIMEDocument.m in Sources */,
 				918191A619B383300043DE12 /* md5_one.c in Sources */,
+				915F05FE19FC3E6400821E59 /* PopoverView.m in Sources */,
 				91608987197BAEDA0036C807 /* UIRefreshControl+AFNetworking.m in Sources */,
 				91CE6D0F19BDB2CD0022DD05 /* CollapseClickArrow.m in Sources */,
 				91CE6D9819BDBBF00022DD05 /* RatingView.m in Sources */,

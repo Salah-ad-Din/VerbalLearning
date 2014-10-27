@@ -64,6 +64,9 @@
 }
 @property (unsafe_unretained, nonatomic) IBOutlet UITextView *contentTextView;
 @property (strong, nonatomic) NSMutableArray *rangeMArray;
+@property (strong, nonatomic) IBOutlet UIButton *backButton;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 @end
 
 @implementation ListeningArticleViewController
@@ -113,7 +116,6 @@
         bParseWAV = NO;
         resourcePath = [[NSString alloc] initWithString:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], @"Image"]];
         _recording = [[RecordingObject alloc] init];
-        [_recording setAddInView:self.view];
         _bReadFlowMe = NO;
         _lastPlayIndexforPause = -1;
         _rangeMArray = [[NSMutableArray alloc] initWithCapacity:0];
@@ -243,11 +245,17 @@
         [contentText appendString:sentence.orintext];
         [_rangeMArray addObject:[NSValue valueWithRange:sentenceRange]];
     }
-    UIFont *font = [UIFont systemFontOfSize:20.0];
+    
+    //text attribute
+    UIFont *font = [UIFont systemFontOfSize:17.0];
     NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:contentText attributes:attrsDictionary];
     _contentTextView.attributedText = string;
     [string release];
+    
+    NSString *time = [(Sentence *)[_sentencesArray lastObject] endtime];
+    time = [[time componentsSeparatedByString:@"."] firstObject];
+    _timeLabel.text = time;
 }
 
 - (void)addWaitingView:(NSInteger)tag withText:(NSString*)text withAnimation:(BOOL)animated
@@ -361,6 +369,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [_recording setAddInView:self.view];
+    _titleLabel.text = self.lessonTitle;
     if (!bInit) {
         bInit = YES;
         [self initMembers];
@@ -767,7 +777,6 @@
 
 - (void)playingWithSentence:(id)sen
 {
-    
     NSURL *fileURL = [[NSURL alloc] initFileURLWithPath: wavefile];
     AVAudioPlayer *newPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL: fileURL error: nil];
     [fileURL release];
@@ -915,14 +924,19 @@
     switch (ePlayStatus) {
         case PLAY_STATUS_NONE:
             ePlayStatus = PLAY_STATUS_PLAYING;
+            [readeButton setImage:[UIImage imageNamed:@"PauseIcon"] forState:UIControlStateNormal];
             [self playfromCurrentPos];
+            [self changeSentenceColorWithIndex:clickindex];
             break;
         case PLAY_STATUS_PAUSING:
             ePlayStatus = PLAY_STATUS_PLAYING;
+            [readeButton setImage:[UIImage imageNamed:@"PauseIcon"] forState:UIControlStateNormal];
             [self playfromCurrentPos];
+            [self changeSentenceColorWithIndex:clickindex];
             break;
         case PLAY_STATUS_PLAYING:
             ePlayStatus = PLAY_STATUS_PAUSING;
+            [readeButton setImage:[UIImage imageNamed:@"PlayIcon"] forState:UIControlStateNormal];
             if (self.player) {
                 [self.player pause];
                 [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_STOP_ANIMITIONPRESS_RIGHTNOW object:nil userInfo:nil];
@@ -977,7 +991,7 @@
         [t removeFromSuperview];
     }
 }
-
+/*
 - (void)playfromCurrentPos
 {
     if (ePlayStatus != PLAY_STATUS_PLAYING) {
@@ -992,6 +1006,23 @@
         if(!self.player.isPlaying) {
             [self playingWithSentence:sentence];
         }
+    }
+}
+ */
+
+- (void)playfromCurrentPos
+{
+    if (ePlayStatus != PLAY_STATUS_PLAYING) {
+        [self.player pause];
+        return;
+    }
+    
+    if (clickindex < [_sentencesArray count]) {
+        [self updateUI];
+        Sentence* sentence = [_sentencesArray objectAtIndex:clickindex];
+        NSTimeInterval inter = [sentence endTime] - [sentence startTime];
+        [self playingWithSentence:sentence];
+        [self performSelector:@selector(pauseintime) withObject:self afterDelay:inter];
     }
 }
 
@@ -1023,7 +1054,7 @@
 - (void)finishReadingWholeText {
     clickindex = [self.sentencesArray count] - 1;
     if (nLesson == PLAY_LESSON) {
-        [readeButton setImage:[UIImage imageNamed:@"Btn_Play_S@2x.png"] forState:UIControlStateNormal];
+        [readeButton setImage:[UIImage imageNamed:@"PlayIcon"] forState:UIControlStateNormal];
         nLesson = PLAY_LESSON_TYPE_NONE;
         [self.collpaseLesson reloadCollapseClick];
         CustomViewController* customController = [[CustomViewController alloc] initWithNibName:@"CustomViewController" bundle:nil];
@@ -1045,6 +1076,11 @@
     [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideBottomBottom];
 }
 
+- (IBAction)backToPrevious
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)myplayer successfully:(BOOL)flag
 {
     if (flag) {
@@ -1057,6 +1093,7 @@
     }
 }
 
+/*
 - (void)pauseintime;
 {
     if (ePlayStatus != PLAY_STATUS_PLAYING) {
@@ -1086,16 +1123,48 @@
         }
     }
 }
+ */
+
+- (void)pauseintime;
+{
+    if (ePlayStatus != PLAY_STATUS_PLAYING) {
+        return;
+    }
+    if (nLesson == PLAY_LESSON) {
+        // reading lesson.
+        [self.player pause];
+        if (clickindex < [_sentencesArray count]) {
+            clickindex++;
+            if (clickindex < [_sentencesArray count]) {
+                Sentence* sentence = [_sentencesArray objectAtIndex:clickindex];
+                self.player.currentTime = [sentence startTime];
+                [self changeSentenceColorWithIndex:clickindex];
+                [self playfromCurrentPos];
+//                [self performSelector:@selector(playfromCurrentPos) withObject:self afterDelay:(1.0)];
+            } else {
+                [self finishReadingWholeText];
+            }
+        }
+    } else {
+        // reading and practice.
+        [self.player pause];
+        if (clickindex < [_sentencesArray count] ) {
+            Sentence* sentence = [_sentencesArray objectAtIndex:clickindex];
+            self.player.currentTime = [sentence startTime];
+            [self performSelector:@selector(showReadyRecording:) withObject:[NSNumber numberWithInt:clickindex] afterDelay:(1.0)];
+        }
+    }
+}
 
 - (void)changeSentenceColorWithIndex:(NSInteger)index
 {
     NSRange range = [_rangeMArray[index] rangeValue];
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:_contentTextView.text];
     [string beginEditing];
-    UIFont *font = [UIFont systemFontOfSize:20.0];
+    UIFont *font = [UIFont systemFontOfSize:17.0];
     NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
     [string addAttributes:attrsDictionary range:NSMakeRange(0, _contentTextView.text.length)];
-    [string addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:range];
+    [string addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:0.19 green:0.67 blue:0.82 alpha:1] range:range];
     [string endEditing];
     _contentTextView.attributedText = string;
     [string release];
