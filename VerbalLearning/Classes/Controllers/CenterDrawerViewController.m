@@ -88,6 +88,8 @@
     _extensiveView.layer.borderWidth = 1.0f;
     _extensiveView.layer.borderColor = [UIColor grayColor].CGColor;
     _extensiveView.tag = 1004;
+    CurrentInfo* lib = [CurrentInfo sharedCurrentInfo];
+    lib.currentLibID = [LoginViewController rootViewController].selectOrgInfo.orgID;
 
 }
 

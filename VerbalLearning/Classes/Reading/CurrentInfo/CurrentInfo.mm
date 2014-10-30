@@ -133,6 +133,10 @@ static CurrentInfo* _currentInfo;
     }
 }
 
+- (void)setCurrentPkgDataTitle:(NSString *)t
+{
+    currentPkgDataTitle = t;
+}
 - (void)dealloc
 {
     [self.currentPkgDataPath release];

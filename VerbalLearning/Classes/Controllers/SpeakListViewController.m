@@ -17,6 +17,8 @@
 #import "AFNetworking.h"
 #import "LoginViewController.h"
 #import "CourseParser.h"
+#import "StoreDownloadPkg.h"
+#import "CurrentInfo.h"
 
 @interface SpeakListViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
@@ -128,12 +130,26 @@
     
     NSInteger count = 0;
     count = [[self.parser.pkgsArray[indexPath.row] dataPkgCourseInfoArray] count];
+    StoreDownloadPkg* downloadPkg = [[StoreDownloadPkg alloc] init];
+    CurrentInfo* lib = [CurrentInfo sharedCurrentInfo];
+    downloadPkg.info = self.parser.pkgsArray[indexPath.row];
+    downloadPkg.info.libID = lib.currentLibID;
+    [downloadPkg doDownload];
+    NSRange r = [[downloadPkg getpkgPath] rangeOfString:STRING_VOICE_PKG_DIR];
+    if (r.location != NSNotFound) {
+        NSString* path = [[downloadPkg getpkgPath] substringFromIndex:(r.location + r.length + 1)];
+        lib.currentPkgDataPath = path;
+        lib.currentLibID = downloadPkg.info.libID;
+        lib.lessonType = LESSONTYPE_INTENSIVE;
+    }
 
 
     
     for (int i = 0; i < count; i++) {
         //选择block
         void(^AHKActionSheetHandler)(AHKActionSheet *actionSheet) = ^(AHKActionSheet *actionSheet){
+  
+            
             NSString *xmlFileName = [[[self.parser.pkgsArray[indexPath.row] dataPkgCourseInfoArray] objectAtIndex:i] file];
             NSString *dowloadURL = [RESOURCE_BASE_URL stringByAppendingString:xmlFileName];
             
@@ -141,13 +157,16 @@
             saveDocument = [saveDocument stringByAppendingString:[NSString stringWithFormat:@"/%ld/",(long)[LoginViewController rootViewController].selectOrgInfo.orgID]];
             NSString *savePath = [saveDocument stringByAppendingString:xmlFileName];
             
-            [self downloadResourceXML:dowloadURL withSavePath:savePath Completion:^{
+            lib.currentPkgDataTitle = [[[self.parser.pkgsArray[indexPath.row] dataPkgCourseInfoArray] objectAtIndex:i] title];
+           [self downloadResourceXML:dowloadURL withSavePath:savePath Completion:^{
                 //解析xml,推出下一个
                 CourseParser *parser = [[CourseParser alloc] init];
                 parser.resourcePath = saveDocument;
-                [parser loadCourses:xmlFileName];
-                
+               parser.resourceSaveDataPath = [[[VLSingleton sharedInstance] getCachePath] stringByAppendingFormat:@"/%@/",STRING_VOICE_PKG_DIR];
+               [parser loadCourses:xmlFileName];
+                 
                 SpeakDetailListViewController *detailList = [[SpeakDetailListViewController alloc] init];
+                detailList.pkgTitle = [[[self.parser.pkgsArray[indexPath.row] dataPkgCourseInfoArray] objectAtIndex:i] title];
                 detailList.course = parser.course;
                 detailList.parser = parser;
                 [self.navigationController pushViewController:detailList animated:YES];
