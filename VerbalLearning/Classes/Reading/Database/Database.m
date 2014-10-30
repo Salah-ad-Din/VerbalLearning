@@ -326,6 +326,23 @@ static Database* _database;
 	return bExist;
 }
 
+- (BOOL)isExsitVoicePkgInfo:(DownloadDataPkgInfo*)info
+{
+    sqlite3_stmt *statement;
+    BOOL bExist = NO;
+    NSString  *sql =[[NSString alloc] initWithFormat:@"SELECT %@ FROM %@ WHERE  %@ = '%@' AND %@ = '%d'",  STRING_DB_VOICE_PATH, STRING_DB_TABLENAME_VOICE_PKG, STRING_DB_VOICE_TITLE, info.title, STRING_DB_LIBARY_ID, info.libID];
+	int success = sqlite3_prepare_v2((sqlite3 *)_database, [sql UTF8String], -1, &statement, NULL);
+    if (success == SQLITE_OK) {
+		while (sqlite3_step(statement) == SQLITE_ROW) {
+			bExist = YES;
+        }
+    }
+ 	[sql release];
+	sqlite3_finalize(statement);
+   return bExist;
+
+}
+
 - (BOOL)insertVoicePkgInfo:(DownloadDataPkgInfo*)info;
 {
  	/*int fileID = [self getFileIDbyPath:book.path];
@@ -333,6 +350,9 @@ static Database* _database;
 		return NO;
     */
 	// insert a new record
+    if ([self isExsitVoicePkgInfo:info]) {
+        return NO;
+    }
 	[databaseLock lock];
 	sqlite3_stmt *statement;
 

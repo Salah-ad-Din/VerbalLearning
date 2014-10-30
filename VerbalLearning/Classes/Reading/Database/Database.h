@@ -58,6 +58,7 @@
 
 - (BOOL)isExistsTable:(NSString*)tableName;
 - (BOOL)insertVoicePkgInfo:(DownloadDataPkgInfo*)info;
+- (BOOL)isExsitVoicePkgInfo:(DownloadDataPkgInfo*)info;
 - (BOOL)insertVoiceCourseInfo:(DownloadDataPkgInfo*)info;;
 
 - (BOOL)insertLibaryInfo:(LibaryInfo*)info;
