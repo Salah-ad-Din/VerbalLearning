@@ -143,8 +143,74 @@
         lib.lessonType = LESSONTYPE_INTENSIVE;
     }
 
+    //
+    if (_lessonType == LESSONTYPE_INTENSIVE) {
+        StoreDownloadPkg* downloadPkg = [[StoreDownloadPkg alloc] init];
+        downloadPkg.info = self.parser.pkgsArray[indexPath.row];
+        downloadPkg.info.libID = [LoginViewController rootViewController].selectOrgInfo.orgID;
+        [downloadPkg doDownload];
+        CurrentInfo* lib = [CurrentInfo sharedCurrentInfo];
+        NSRange r = [[downloadPkg getpkgPath] rangeOfString:STRING_VOICE_PKG_DIR];
+        if (r.location != NSNotFound) {
+            NSString* path = [[downloadPkg getpkgPath] substringFromIndex:(r.location + r.length + 1)];
+            lib.currentPkgDataPath = path;
+            lib.currentLibID = downloadPkg.info.libID;
+            lib.lessonType = LESSONTYPE_INTENSIVE;
+        }
+    } else {
+        StoreDownloadPkg* downloadPkg = [[StoreDownloadPkg alloc] init];
+        downloadPkg.info =  self.parser.pkgsArray[indexPath.row];
+        downloadPkg.info.libID = [LoginViewController rootViewController].selectOrgInfo.orgID;
+        [downloadPkg doDownload];
+        CurrentInfo* lib = [CurrentInfo sharedCurrentInfo];
+        NSRange r = [[downloadPkg getpkgPath] rangeOfString:STRING_VOICE_PKG_DIR];
+        if (r.location != NSNotFound) {
+            NSString* path = [[downloadPkg getpkgPath] substringFromIndex:(r.location + r.length + 1)];
+            lib.currentPkgDataPath = path;
+            lib.currentLibID = downloadPkg.info.libID;
+            lib.lessonType = LESSONTYPE_EXTENSIVE;
+        }
+    }
+    for (int i = 0; i < count; i++) {
+        NSString *title = nil;
+        NSString *xmlFileName = nil;
+        
+        title = [[[self.parser.pkgsArray[indexPath.row] dataPkgCourseInfoArray] objectAtIndex:i] title];
+        xmlFileName = [[[self.parser.pkgsArray[indexPath.row] dataPkgCourseInfoArray] objectAtIndex:i] file];
 
-    
+        //选择block
+        void(^AHKActionSheetHandler)(AHKActionSheet *actionSheet) = ^(AHKActionSheet *actionSheet){
+            NSString *dowloadURL = [RESOURCE_BASE_URL stringByAppendingString:xmlFileName];
+            
+            NSString *saveDocument = [[VLSingleton sharedInstance] getCachePath];
+            saveDocument = [saveDocument stringByAppendingString:[NSString stringWithFormat:@"/%ld/",(long)[LoginViewController rootViewController].selectOrgInfo.orgID]];
+            NSString *savePath = [saveDocument stringByAppendingString:xmlFileName];
+            
+            [self downloadResourceXML:dowloadURL withSavePath:savePath Completion:^{
+                //解析xml,推出下一个
+                CourseParser *parser = [[CourseParser alloc] init];
+                parser.resourcePath = saveDocument;
+                parser.resourceSaveDataPath = [[[VLSingleton sharedInstance] getCachePath] stringByAppendingFormat:@"/%@/",STRING_VOICE_PKG_DIR];
+                [parser loadCourses:xmlFileName];
+                
+                SpeakDetailListViewController *detailList = [[SpeakDetailListViewController alloc] init];
+                detailList.course = parser.course;
+                detailList.parser = parser;
+                detailList.pkgTitle = title;
+                [self.navigationController pushViewController:detailList animated:YES];
+            }];
+            
+        };
+        
+        [actionSheet addButtonWithTitle:title
+                                  image:nil
+                                   type:AHKActionSheetButtonTypeDefault
+                                handler:AHKActionSheetHandler];
+    }
+    [actionSheet show];
+    //
+
+    /*
     for (int i = 0; i < count; i++) {
         //选择block
         void(^AHKActionSheetHandler)(AHKActionSheet *actionSheet) = ^(AHKActionSheet *actionSheet){
@@ -181,6 +247,7 @@
                                 handler:AHKActionSheetHandler];
     }
     [actionSheet show];
+     */
 }
 
 #pragma mark - UITableViewDataSource

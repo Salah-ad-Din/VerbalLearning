@@ -374,7 +374,7 @@ static bool bLoadModel = NO;
                 }
                 
                 //过滤空句子
-                if ([sentence.starttime isEqualToString:@""] || [sentence.endtime isEqualToString:@""] || [sentence.orintext isEqualToString:@""] || [sentence.transtext isEqualToString:@""]) {
+                if ([sentence.starttime isEqualToString:@""] || [sentence.endtime isEqualToString:@""] || [sentence.orintext isEqualToString:@""]) {
                     sentenceEle = [TBXML nextSiblingNamed:@"s" searchFromElement:sentenceEle];
                     continue;
                 }

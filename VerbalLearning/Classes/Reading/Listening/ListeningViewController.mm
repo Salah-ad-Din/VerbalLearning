@@ -887,7 +887,7 @@
             [_buttonPlay play];
             cell.progressDownView.hidden = YES;
             cell.progressView.hidden = YES;
-            [self performSelector:@selector(stopRecording:) withObject:cell afterDelay:inter];
+            [self performSelector:@selector(stopRecording:) withObject:sen afterDelay:inter];
             
         }
             break;
@@ -936,6 +936,50 @@
     cell.playingDownButton.enabled = YES;
  
 }
+
+- (void)stopRecording:(Sentence *)curSentence
+{
+    [_recording stop];
+    NSString *recordFile = [self getRecordingFilePath:clickindex];
+    /*
+    if (cell != nil) {
+        cell.waveView.wavefilename = recordFile;
+        [cell.waveView loadwavedata];
+        cell.timelabel.text = [NSString stringWithFormat:@"Time: %.2f", cell.waveView.dwavesecond];
+    }
+     */
+    NSMutableDictionary* scoreDic = [[NSMutableDictionary alloc] init];
+    int score = [RecordingObject scoreForSentence:curSentence file:recordFile toResult:scoreDic];
+    
+    TeacherTableViewCell *cell = (TeacherTableViewCell *)[_lessonTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:clickindex inSection:0]];
+    cell.scoreLabel.text = [NSString stringWithFormat:@"%d",score];
+    
+    /*
+    CollapseClickCell* wholeCell = [self.collpaseLesson collapseClickCellForIndex:clickindex];
+    ListeningCell* header = (ListeningCell*)[wholeCell.TitleView viewWithTag:101];
+    if (header != nil) {
+        NSMutableArray* words = [scoreDic objectForKey:@"words"];
+        if (words != nil) {
+            [header changeTextColor:words];
+        }
+        if (nLesson == PLAY_READING_FLOWME) {
+            [_scroeArray addObject:@(score)];
+        }
+        [header showScore:score];
+    }
+    [scoreDic release];
+     */
+    
+    if (nLesson == PLAY_READING_FLOWME && (clickindex < [_sentencesArray count])) {
+        if ((clickindex+1) < [self.sentencesArray count]) {
+            [self performSelector:@selector(startNextPractice) withObject:nil afterDelay:2.0];
+        } else {
+            ePlayStatus = PLAY_STATUS_NONE;
+            [self finishReadingWholeText];
+        }
+    }
+}
+/*
 - (void)stopRecording:(RecordingWaveCell *)cell
 {
     [_recording stop];
@@ -975,6 +1019,7 @@
         }
     }
 }
+ */
 
 - (void)cleanScoreImageView
 {

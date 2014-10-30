@@ -10,6 +10,8 @@
 #import "SpeakListViewController.h"
 #import "VLSingleton.h"
 #import "LoginViewController.h"
+#import "StoreDownloadPkg.h"
+#import "CurrentInfo.h"
 
 @interface LeftSideDrawerViewController ()
 
@@ -61,6 +63,7 @@
             break;
         case 5:
         {
+            speak.lessonType = LESSONTYPE_INTENSIVE;
             LoginViewController *rootVC = [LoginViewController rootViewController];
             NSString *downDir = [[VLSingleton sharedInstance] getCachePath];
             NSString *orgDir = [downDir stringByAppendingString:[NSString stringWithFormat:@"/%ld",(long)rootVC.selectOrgInfo.orgID]];
@@ -71,6 +74,7 @@
             break;
         case 6:
         {
+            speak.lessonType = LESSONTYPE_EXTENSIVE;
             LoginViewController *rootVC = [LoginViewController rootViewController];
             NSString *downDir = [[VLSingleton sharedInstance] getCachePath];
             NSString *orgDir = [downDir stringByAppendingString:[NSString stringWithFormat:@"/%ld",(long)rootVC.selectOrgInfo.orgID]];

@@ -29,10 +29,17 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Deb-4G-NzD">
+                        <rect key="frame" x="18" y="34" width="42" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="engLabel" destination="vPO-Pv-NPz" id="eI6-WN-mp7"/>
+                <outlet property="scoreLabel" destination="Deb-4G-NzD" id="Tfx-YS-n9b"/>
                 <outlet property="teacherImage" destination="X0G-6w-dWs" id="Smj-L9-cU7"/>
                 <outlet property="zhLabel" destination="xwc-Tv-ZQy" id="NPn-pV-shj"/>
             </connections>

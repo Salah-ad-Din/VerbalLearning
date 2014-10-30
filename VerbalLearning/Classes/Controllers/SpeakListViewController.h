@@ -11,5 +11,6 @@
 @interface SpeakListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @property (nonatomic, strong) NSString *xmlURL;
+@property (nonatomic, assign) LESSONTYPE lessonType;
 
 @end
